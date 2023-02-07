@@ -1,0 +1,98 @@
+body {
+    margin: 0px;
+    background-color: #cacaca;
+}
+
+.navbar {
+    height: 70px;
+    background-color: #fefefe;
+    display: flex;
+    flex-direction: row;
+    flex-flow: row;
+    flex: 1 100%;
+    padding-left: 256px;
+    padding-right: 256px;
+    border-radius: 0px 0px 150px 150px;
+}
+
+.maintitle {
+    font-size: 48px;
+    color: #1a1a1a;
+    display: flex;
+    flex-direction: row;
+    flex-flow: row;
+    flex: 1 100%;
+    justify-content: left;
+    width: fit-content;
+}
+
+.side-buttons {
+    margin-left: 12px;
+    display: flex;
+    flex-direction: row;
+    flex-flow: row;
+    flex: 1 100%;
+    justify-content: right;
+    width: fit-content;
+    align-items: center;
+}
+
+.button {
+    font-size: 48px;
+    color: #1a1a1a;
+    font-size: 18px;
+    margin-right: 12px;
+}
+
+.core {
+    flex: 1 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    margin-top: 24px;
+}
+
+.upper {
+    width: 500px;
+    display: flex;
+    color: white;
+    text-align: left;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    width: 100%;
+    color: #1a1a1a;
+    text-align: center;
+    border-radius: 150px 150px 0px 0px;
+    background-color: #fefefe;
+}
+
+.banner-image {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+}
+
+.image {
+    margin-top: 100px;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.login{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+}
+
+.signup{
+    display:flex;
+    justify-content:center;
+    align-items: center;
+}
