@@ -4,26 +4,32 @@ body {
 }
 
 .navbar {
-    height: 70px;
+    height: fit-content;
     background-color: #fefefe;
-    display: flex;
-    flex-direction: row;
-    flex-flow: row;
-    flex: 1 100%;
     padding-left: 256px;
     padding-right: 256px;
+    padding-bottom: 24px;
     border-radius: 0px 0px 150px 150px;
 }
 
 .maintitle {
-    font-size: 48px;
+    padding-top: 24px;
+    font-size: 64px;
     color: #1a1a1a;
     display: flex;
     flex-direction: row;
     flex-flow: row;
     flex: 1 100%;
-    justify-content: left;
-    width: fit-content;
+    justify-content: center;
+    width: 100%;
+}
+
+.not-decorated:visited { 
+    color: inherit;
+}
+
+.not-decorated:link {
+    text-decoration: none;
 }
 
 .side-buttons {
@@ -32,16 +38,24 @@ body {
     flex-direction: row;
     flex-flow: row;
     flex: 1 100%;
-    justify-content: right;
-    width: fit-content;
+    justify-content: center;
+    width: 100%;
     align-items: center;
+    margin-top: 24px;
 }
 
 .button {
     font-size: 48px;
-    color: #1a1a1a;
+    color: #dadada;
     font-size: 18px;
     margin-right: 12px;
+    border-radius: 24px;
+    background-color: #1a1a1a;
+    padding: 3px 12px 3px 12px;
+}
+
+.button:hover {
+    background-color: #4a4a4a;
 }
 
 .core {
