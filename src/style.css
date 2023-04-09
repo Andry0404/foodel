@@ -74,7 +74,7 @@ body {
 }
 
 .footer {
-    position: fixed;
+    position: sticky;
     left: 0;
     bottom: 0;
     padding-bottom: 20px;
@@ -109,4 +109,24 @@ body {
     display:flex;
     justify-content:center;
     align-items: center;
+}
+
+.info-ristorante {
+    margin-top: 15px;
+    margin-left: 15%;
+    margin-right: 15%;
+    background-color: white;
+    padding: 15px;
+}
+
+.generale-menu {
+    margin-top: 15px;
+    margin-left: 15%;
+    margin-right: 15%;
+    background-color: white;
+    padding: 15px;
+}
+
+.generale-menu h3{
+    font-size: 32px;
 }
