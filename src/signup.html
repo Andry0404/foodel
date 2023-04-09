@@ -22,26 +22,24 @@
     </div>
 
     <div class="signup">
-        <form action="/action_page.php">
+        <form name="signup-form" action="./submit-signup-request.php">
             <label for="nome">Nome:</label>
-
             <input type="text" id="nome" name="nome"><br><br>
 
             <label for="cognome">Cognome:</label>
-
             <input type="text" id="cognome" name="cognome"><br><br>
 
-            <label for="email">Email:</label>
+            <label for="eta">Indirizzo:</label>
+            <input type="text" id="indirizzo" name="indirizzo"><br><br>
 
+            <label for="eta">Data di nascita:</label>
+            <input type="date" id="data_di_nascita" name="data_di_nascita"><br><br>
+
+            <label for="email">Email:</label>
             <input type="text" id="email" name="email"><br><br>
 
             <label for="password">Password:</label>
-
             <input type="password" id="password" name="password"><br><br>
-
-            <label for="eta">Eta:</label>
-
-            <input type="text" id="eta" name="eta"><br><br>
 
             <input type="submit" value="Submit">
           </form>
