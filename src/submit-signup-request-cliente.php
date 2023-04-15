@@ -31,6 +31,7 @@
     }
     if ($password == "") {
         $campi_validi = false;
+        $password = md5($password);
     }
 
     if ($campi_validi) {
@@ -42,14 +43,18 @@
         $myquery = mysqli_query($connection, $query);
 
         if ($myquery) {
-            print("<h1>Inserzione eseguita!</h1>");
+            // redirect: manda ad un'altra pagina
+            mysqli_close($connection);
+            header("Location: http://localhost/foodel/src/registrazione-success.html");
+            die();
         } else {
-            print("<h1>Inserzione non eseguita!</h1>");
+            mysqli_close($connection);
+            header("Location: http://localhost/foodel/src/registrazione-failed.html");
+            die();
         }
-
-        mysqli_close($connection);
     } else {
-        print("<h1>Non sono ammessi campi vuoti.</h1>");
+        header("Location: http://localhost/foodel/src/registrazione-failed.html");
+        die();
     }
 
     ?>

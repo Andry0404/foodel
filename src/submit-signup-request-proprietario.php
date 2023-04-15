@@ -27,6 +27,7 @@
     }
     if ($password == "") {
         $campi_validi = false;
+        $password = md5($password);
     }
 
     if ($campi_validi) {
