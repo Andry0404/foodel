@@ -27,10 +27,10 @@
     }
     if ($password == "") {
         $campi_validi = false;
-        $password = md5($password);
     }
 
-    if ($campi_validi) {
+    if ($campi_validi) {// hashing della password
+        $password = sha1($password);
         $connection = mysqli_connect("localhost", "root", "", "foodelDB") or die("ERROR: connection error with foodelDB. " . mysqli_connect_error());
 
         $query = "INSERT INTO Proprietario(cognome, nome, email, data_nascita, hashed_password) ";
