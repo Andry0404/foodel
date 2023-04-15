@@ -49,7 +49,7 @@
 
         mysqli_close($connection);
     } else {
-        print("<h1>Non sono ammessi campi vuoti.</h1>")
+        print("<h1>Non sono ammessi campi vuoti.</h1>");
     }
 
     ?>
