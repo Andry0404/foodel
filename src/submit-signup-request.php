@@ -10,7 +10,7 @@
     $indirizzo = $_GET['indirizzo'];
     $data_di_nascita = $_GET['data_di_nascita'];
     $email = $_GET['email'];
-    $password = $_GET['hashed_password'];
+    $password = $_GET['password'];
 
     $connection = mysqli_connect("localhost", "root", "", "foodelDB") or die("ERROR: connection error with foodelDB. " . mysqli_connect_error());
 
