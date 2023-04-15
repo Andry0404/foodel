@@ -106,9 +106,17 @@ body {
 }
 
 .signup{
+    background-color: #dadada;
+    margin: 15px 0px 5  0px 0px;
+    width: 60%;
     display:flex;
     justify-content:center;
     align-items: center;
+}
+
+.signup-wrapper {
+    display: flex;
+    justify-content: center;
 }
 
 .info-ristorante {
@@ -129,4 +137,8 @@ body {
 
 .generale-menu h3{
     font-size: 32px;
+}
+
+.text-centered {
+    text-align: center;
 }
