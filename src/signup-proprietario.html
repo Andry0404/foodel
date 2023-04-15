@@ -1,0 +1,62 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="maintitle">
+            <a class="not-decorated" href="index.html">FOODEL</a>
+        </div>
+        <div class="side-buttons">
+            <div class="button">
+                FAQ
+            </div>
+            <div class="button">
+                <a class="not-decorated" href="login.html">Login</a>
+            </div>
+            <div class="button">
+                <a class="not-decorated" href="signup.html">Sign up</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="signup-wrapper">
+        <div class="signup">
+            <form name="signup-form" action="./submit-signup-request-proprietario.php" method="get">
+                <h3 class="text-centered">Sign up</h3>
+                <h4 class="text-centered">Compila il form per la registrazione</h4>
+                <table>
+                    <tr>
+                        <td><label for="nome">Nome:</label></td>
+                        <td><input type="text" id="nome" name="nome"><br><br></td>
+                    </tr>
+                    <tr>
+                        <td><label for="cognome">Cognome:</label></td>
+                        <td><input type="text" id="cognome" name="cognome"><br><br></td>
+                    </tr>
+                    <tr>
+                        <td><label for="eta">Data di nascita:</label></td>
+                        <td><input type="date" id="data_di_nascita" name="data_di_nascita"><br><br></td>
+                    </tr>
+                    <tr>
+                        <td><label for="email">Email:</label></td>
+                        <td><input type="email" id="email" name="email"><br><br></td>
+                    </tr>
+                    <tr>
+                        <td><label for="password">Password:</label></td>
+                        <td><input type="password" id="password" name="password"><br><br></td>
+                    </tr>
+                </table>             
+                
+                <input type="submit" value="Submit">
+              </form>
+        </div>
+    </div>
+
+    <div class="footer">
+        FOODEL - Andrea De Giorgi - 2023
+    </div>
+</body>
+
+</html>
