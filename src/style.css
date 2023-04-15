@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css?family=Sofia');
+
 body {
     margin: 0px;
-    background-color: #cacaca;
+    background-color: #fafafa;
 }
 
 .navbar {
@@ -9,22 +11,34 @@ body {
     padding-left: 256px;
     padding-right: 256px;
     padding-bottom: 24px;
-    border-radius: 0px 0px 150px 150px;
+    box-shadow: 0px 15px 30px #cacaca;
+    display: flex;
+    justify-content: center;
 }
 
-.maintitle {
+.maintitle-wrapper {
     padding-top: 24px;
-    font-size: 64px;
-    color: #1a1a1a;
     display: flex;
     flex-direction: row;
     flex-flow: row;
     flex: 1 100%;
     justify-content: center;
-    width: 100%;
 }
 
-.not-decorated:visited { 
+.maintitle {
+    padding-top: 24px;
+    font-size: 52px;
+    color: #1a1a1a;
+    font-family: 'Sofia', serif;
+    transition: 0.3s;
+}
+
+.maintitle:hover {
+    color: blue;
+    text-shadow: 0px 0px 12px red;
+}
+
+.not-decorated:visited {
     color: inherit;
 }
 
@@ -39,23 +53,26 @@ body {
     flex-flow: row;
     flex: 1 100%;
     justify-content: center;
-    width: 100%;
+    width: 50%;
     align-items: center;
     margin-top: 24px;
 }
 
 .button {
     font-size: 48px;
-    color: #dadada;
+    color: #121212;
     font-size: 18px;
     margin-right: 12px;
     border-radius: 24px;
-    background-color: #1a1a1a;
+    background-color: white;
     padding: 3px 12px 3px 12px;
+    width: 250px;
+    transition: 0.5s;
 }
 
 .button:hover {
-    background-color: #4a4a4a;
+    color: white;
+    background-color: red;
 }
 
 .core {
@@ -99,18 +116,18 @@ body {
     object-fit: cover;
 }
 
-.login{
-    display:flex;
-    justify-content:center;
+.login {
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 
-.signup{
+.signup {
     background-color: #dadada;
-    margin: 15px 0px 5  0px 0px;
+    margin: 15px 0px 5 0px 0px;
     width: 60%;
-    display:flex;
-    justify-content:center;
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 
@@ -125,6 +142,14 @@ body {
     margin-right: 15%;
     background-color: white;
     padding: 15px;
+    border-radius: 0 60px 0 0;
+    box-shadow: 0px 15px 30px #cacaca;
+}
+
+.nome-ristorante {
+    text-transform: capitalize;
+    font-size: 30px;
+    text-align: center;
 }
 
 .generale-menu {
@@ -133,12 +158,51 @@ body {
     margin-right: 15%;
     background-color: white;
     padding: 15px;
+    box-shadow: 0px 15px 30px #cacaca;
 }
 
-.generale-menu h3{
+.generale-menu h3 {
     font-size: 32px;
 }
 
 .text-centered {
     text-align: center;
+}
+
+.hamburger {
+    position: fixed;
+    z-index: 100;
+    top: 1rem;
+    right: 1rem;
+    padding: 4px;
+    border: black solid 1px;
+    background: white;
+    cursor: pointer;
+}
+
+.closeIcon {
+    display: none;
+}
+
+.menu {
+    position: fixed;
+    transform: translateY(-100vh);
+    transition: transform 0.2s;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99;
+    background: black;
+    color: white;
+    list-style: none;
+    padding-top: 4rem;
+}
+
+.showMenu {
+    transform: translateY(0);
+}
+
+.menuItem {
+    margin: 10px 0 10px 0;
 }

@@ -5,35 +5,87 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
     <link rel="stylesheet" type="text/css" href="style.css">
 
 </head>
 <body>
     <div class="navbar">
         <div class="maintitle">
-            <a class="not-decorated" href="index.html">FOODEL</a>
+            <a class="not-decorated" href="index.html">Foodel</a>
         </div>
-        <div class="side-buttons">
-            <div class="button">
-                FAQ
-            </div>
-            <div class="button">
-                <a class="not-decorated" href="login.html">Login</a>
-            </div>
-            <div class="button">
-                <a class="not-decorated" href="signup-cliente.html">Sign up Cliente</a>
-            </div>
-            <div class="button">
-                <a class="not-decorated" href="signup-proprietario.html">Sign up Proprietario</a>
-            </div>
-        </div>
+        <ul class="menu">
+            <li>
+                <div>
+                    <h1 style="color: white;">Menu</h1>
+                </div>
+            </li>
+            <li>
+                <div class="button menuItem">
+                    FAQ
+                </div>
+            </li>
+            <li>
+                <div class="button menuItem">
+                    <a class="not-decorated" href="login.html">Login</a>
+                </div>
+            </li>
+            <li>
+                <div class="button menuItem">
+                    <a class="not-decorated" href="signup-cliente.html">Sign up Cliente</a>
+                </div>
+            </li>
+            <li>
+                <div class="button menuItem">
+                    <a class="not-decorated" href="signup-proprietario.html">Sign up Proprietario</a>
+                </div>
+            </li>
+        </ul>
+
+        <button class="hamburger">
+            <!-- material icons https://material.io/resources/icons/ -->
+            <i class="menuIcon material-icons">menu</i>
+            <i class="closeIcon material-icons">close</i>
+        </button>
+
+        <script>
+            const menu = document.querySelector(".menu");
+            const menuItems = document.querySelectorAll(".menuItem");
+            const hamburger = document.querySelector(".hamburger");
+            const closeIcon = document.querySelector(".closeIcon");
+            const menuIcon = document.querySelector(".menuIcon");
+
+            closeIcon.style.display = 'none';
+
+            function toggleMenu() {
+                if (menu.classList.contains("showMenu")) {
+                    menu.classList.remove("showMenu");
+                    closeIcon.style.display = "none";
+                    menuIcon.style.display = "block";
+                } else {
+                    menu.classList.add("showMenu");
+                    closeIcon.style.display = "block";
+                    menuIcon.style.display = "none";
+                }
+            }
+
+            menuItems.forEach(
+                function (menuItem) {
+                    menuItem.addEventListener("click", toggleMenu);
+                }
+            )
+
+            hamburger.addEventListener("click", toggleMenu);
+        </script>
     </div>
 
     <div class="info-ristorante">
-        <h1 id="nome-ristorante" class="nome-ristorante">Pizzeria da Ivan</h1>
-        <h3 id="indirizzo-ristorante" class="indirizzo-ristorante">Via Dei Monti, 42</h3>
-        <h4 id="recensione" class="recensione">Recensione: ***</h4>
+        <div class="ristorante-barra-nome">
+            <h1 id="nome-ristorante" class="nome-ristorante">Pizzeria da Ivan</h1>
+        </div>
+        <div class="ristorante-barra-indirizzo" style="display: flex; justify-content: space-evenly; font-size: 12px;">
+            <h3 id="indirizzo-ristorante" class="indirizzo-ristorante">Via Dei Monti, 42</h3>
+            <h4 id="recensione" class="recensione">Recensione: ***</h4>
+        </div>
     </div>
 
     <div class="generale-menu">
