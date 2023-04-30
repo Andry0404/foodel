@@ -1,0 +1,115 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="../../style/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="maintitle">
+            <a class="not-decorated" href="./index.html">Foodel</a>
+        </div>
+        <ul class="menu">
+            <li>
+                <div>
+                    <h1 style="color: purple;">Menu</h1>
+                </div>
+            </li>
+            <li>
+                <div class="button menuItem">
+                    FAQ
+                </div>
+            </li>
+            <li>
+                <div class="button menuItem">
+                    <a class="not-decorated" href="./login.html">Login</a>
+                </div>
+            </li>
+            <li>
+                <div class="button menuItem">
+                    <a class="not-decorated" href="./signup-cliente.html">Sign up Cliente</a>
+                </div>
+            </li>
+            <li>
+                <div class="button menuItem">
+                    <a class="not-decorated" href="./signup-proprietario.html">Sign up Proprietario</a>
+                </div>
+            </li>
+        </ul>
+
+        <button class="hamburger">
+            <!-- material icons https://material.io/resources/icons/ -->
+            <i class="menuIcon material-icons">menu</i>
+            <i class="closeIcon material-icons">close</i>
+        </button>
+
+        <script>
+            const menu = document.querySelector(".menu");
+            const menuItems = document.querySelectorAll(".menuItem");
+            const hamburger = document.querySelector(".hamburger");
+            const closeIcon = document.querySelector(".closeIcon");
+            const menuIcon = document.querySelector(".menuIcon");
+
+            closeIcon.style.display = 'none';
+
+            function toggleMenu() {
+                if (menu.classList.contains("showMenu")) {
+                    menu.classList.remove("showMenu");
+                    closeIcon.style.display = "none";
+                    menuIcon.style.display = "block";
+                } else {
+                    menu.classList.add("showMenu");
+                    closeIcon.style.display = "block";
+                    menuIcon.style.display = "none";
+                }
+            }
+
+            menuItems.forEach(
+                function (menuItem) {
+                    menuItem.addEventListener("click", toggleMenu);
+                }
+            )
+
+            hamburger.addEventListener("click", toggleMenu);
+        </script>
+    </div>
+
+    <div class="signup-wrapper">
+        <div class="signup">
+            <form name="signup-form" action="../../server/src/crearistorante.php" method="get">
+                <h3 class="text-centered">Crea il tuo ristorante</h3>
+                <h4 class="text-centered">Compila il form per la creazione</h4>
+                <table>
+                    <tr>
+                        <td><label for="nome">Nome:</label></td>
+                        <td><input type="text" id="nome" name="nome"><br><br></td>
+                    </tr>
+                    <tr>
+                        <td><label for="indirizzo">Indirizzo:</label></td>
+                        <td><input type="text" id="indirizzo" name="indirizzo"><br><br></td>
+                    </tr>
+                    <tr>
+                        <td><label for="numero telefono">Numero telefono:</label></td>
+                        <td><input type="text" id="num_telefono" name="numero telefono"><br><br></td>
+                    </tr>
+                    <tr>
+                        <td><label for="orario apertura">Orario apertura:</label></td>
+                        <td><input type="orario apertura" id="orario_apertura" name="orario apertura"><br><br></td>
+                    </tr>
+                    <tr>
+                        <td><label for="orario apertura">Orario chiusura:</label></td>
+                        <td><input type="orario chiusura" id="orario_chiusura" name="orario chiusura"><br><br></td>
+                    </tr>
+                </table>             
+                
+                <input type="submit" value="Submit">
+              </form>
+        </div>
+    </div>
+
+    <div class="footer">
+        FOODEL - Andrea De Giorgi - 2023
+    </div>
+</body>
+
+</html>
