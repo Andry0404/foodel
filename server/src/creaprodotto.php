@@ -28,7 +28,7 @@
 
             $connection = mysqli_connect("localhost", "root", "", "foodelDB") or die ("ERROR: connection error with foodelDB. ".mysqli_connect_error());
 
-            $query= "insert into Prodotto(nome,ingredienti,prezzo,allergeni) values($nome,$ingredienti, $prezzo,$allergeni);";
+            $query= "insert into Prodotto(nome,ingredienti,prezzo,allergeni) values('$nome','$ingredienti', '$prezzo','$allergeni');";
 
             $myquery = mysqli_query($connection, $query);
 
