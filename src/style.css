@@ -30,7 +30,7 @@ body {
     font-size: 52px;
     color: #1a1a1a;
     font-family: 'Sofia', serif;
-    transition: 0.3s;
+    transition: 1s;
 }
 
 .maintitle:hover {
