@@ -51,7 +51,7 @@
             </li>
             <li>
                 <div class="button menuItem">
-                    <a class="not-decorated" href="./creaprodotto.html">Crea stu cazz de prodotto</a>
+                    <a class="not-decorated" href="./creaprodotto.html">Crea prodotto</a>
                 </div>
             </li>
         </ul>
