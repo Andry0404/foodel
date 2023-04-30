@@ -4,5 +4,5 @@ session_start();
 
 session_destroy();
 
-header("Location: index.php");
+header("Refresh:0; url=http://localhost/foodel/client/src/index.php");
 exit;

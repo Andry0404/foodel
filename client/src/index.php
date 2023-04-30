@@ -11,6 +11,7 @@
             <a class="not-decorated" href="./index.php">Foodel</a>
         </div>
         <p>User: <?php
+            session_start();
             if(isset($_SESSION['user_id'])) {
                 print('ok');
             } else {
@@ -52,6 +53,11 @@
             <li>
                 <div class="button menuItem">
                     <a class="not-decorated" href="./creaprodotto.html">Crea prodotto</a>
+                </div>
+            </li>
+            <li>
+                <div class="button menuItem">
+                    <a class="not-decorated" href="../../server/src/logout.php">logout</a>
                 </div>
             </li>
         </ul>
