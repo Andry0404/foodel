@@ -25,14 +25,12 @@
             if ($orario_chiusura == "") {
                 $campi_validi = false;
             }
-        
+
             if ($campi_validi) {
                 $connection = mysqli_connect("localhost", "root", "", "foodelDB") or die("ERROR: connection error with foodelDB. " . mysqli_connect_error());
 
-            $connection = mysqli_connect("localhost", "root", "", "foodelDB") or die ("ERROR: connection error with foodelDB. ".mysqli_connect_error());
-
-            $query= "insert into Ristorante(nome,orario_apertura,orario_apertura,indirizzo,num_telefono) values($nome,$orario_apertura, $orario_chiusura,$indirizzo,$num_telefono);";
-
+            $query= "insert into Ristorante(nome,orario_apertura,orario_chiusura,indirizzo,num_telefono) values('$nome','$orario_apertura', '$orario_chiusura','$indirizzo','$num_telefono');";
+            
             $myquery = mysqli_query($connection, $query);
 
             if ($myquery) {
