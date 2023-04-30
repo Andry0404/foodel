@@ -8,8 +8,16 @@
 <body>
     <div class="navbar">
         <div class="maintitle">
-            <a class="not-decorated" href="./index.html">Foodel</a>
+            <a class="not-decorated" href="./index.php">Foodel</a>
         </div>
+        <p>User: <?php
+            if(isset($_SESSION['user_id'])) {
+                print('ok');
+            } else {
+                print('no');
+            }
+        ?>
+        </p>
         <ul class="menu">
             <li>
                 <div>

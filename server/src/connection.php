@@ -8,4 +8,4 @@
     if(mysqli_connect_errno()) {  
         die("Errore nella connessione al db: ". mysqli_connect_error());  
     }
-?> 
+    return $con;
