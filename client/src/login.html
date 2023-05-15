@@ -7,8 +7,17 @@
 <body>
     <div class="navbar">
         <div class="maintitle">
-            <a class="not-decorated" href="index.html">Foodel</a>
+            <a class="not-decorated" href="./index.php">Foodel</a>
         </div>
+        <p>User: <?php
+            session_start();
+            if(isset($_SESSION['user_id'])) {
+                print('ok');
+            } else {
+                print('no');
+            }
+        ?>
+        </p>
         <ul class="menu">
             <li>
                 <div>
@@ -33,6 +42,21 @@
             <li>
                 <div class="button menuItem">
                     <a class="not-decorated" href="./signup-proprietario.html">Sign up Proprietario</a>
+                </div>
+            </li>
+            <li>
+                <div class="button menuItem">
+                    <a class="not-decorated" href="./crearistorante.html">Crea ristorante</a>
+                </div>
+            </li>
+            <li>
+                <div class="button menuItem">
+                    <a class="not-decorated" href="./creaprodotto.html">Crea prodotto</a>
+                </div>
+            </li>
+            <li>
+                <div class="button menuItem">
+                    <a class="not-decorated" href="../../server/src/logout.php">logout</a>
                 </div>
             </li>
         </ul>
