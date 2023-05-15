@@ -5,7 +5,7 @@
 </head>
 
 <body>
-    <div class="navbar">
+<div class="navbar">
         <div class="maintitle">
             <a class="not-decorated" href="./index.php">Foodel</a>
         </div>
@@ -31,27 +31,27 @@
             </li>
             <li>
                 <div class="button menuItem">
-                    <a class="not-decorated" href="./login.html">Login</a>
+                    <a class="not-decorated" href="./login.php">Login</a>
                 </div>
             </li>
             <li>
                 <div class="button menuItem">
-                    <a class="not-decorated" href="./signup-cliente.html">Sign up Cliente</a>
+                    <a class="not-decorated" href="./signup-cliente.php">Sign up Cliente</a>
                 </div>
             </li>
             <li>
                 <div class="button menuItem">
-                    <a class="not-decorated" href="./signup-proprietario.html">Sign up Proprietario</a>
+                    <a class="not-decorated" href="./signup-proprietario.php">Sign up Proprietario</a>
                 </div>
             </li>
             <li>
                 <div class="button menuItem">
-                    <a class="not-decorated" href="./crearistorante.html">Crea ristorante</a>
+                    <a class="not-decorated" href="./crearistorante.php">Crea ristorante</a>
                 </div>
             </li>
             <li>
                 <div class="button menuItem">
-                    <a class="not-decorated" href="./creaprodotto.html">Crea prodotto</a>
+                    <a class="not-decorated" href="./creaprodotto.php">Crea prodotto</a>
                 </div>
             </li>
             <li>
@@ -100,30 +100,7 @@
 
     <div class="signup-wrapper">
         <div class="signup">
-            <form name="signup-form" action="../../server/src/creaprodotto.php" method="get">
-                <h3 class="text-centered">Crea il tuo prodotto</h3>
-                <h4 class="text-centered">Compila il form per la creazione</h4>
-                <table>
-                    <tr>
-                        <td><label for="nome">Nome:</label></td>
-                        <td><input type="text" id="nome" name="nome"><br><br></td>
-                    </tr>
-                    <tr>
-                        <td><label for="prezzo">Prezzo:</label></td>
-                        <td><input type="text" id="prezzo" name="prezzo"><br><br></td>
-                    </tr>
-                    <tr>
-                        <td><label for="allergeni">Allergeni:</label></td>
-                        <td><input type="text" id="allergeni" name="allergeni"><br><br></td>
-                    </tr>
-                    <tr>
-                        <td><label for="ingredienti">Ingredienti:</label></td>
-                        <td><input type="text" id="ingredienti" name="ingredienti"><br><br></td>
-                    </tr>
-                </table>             
-                
-                <input type="submit" value="Submit">
-              </form>
+            <h3>Registrazione avvenuta con successo!</h3>
         </div>
     </div>
 

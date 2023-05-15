@@ -5,7 +5,7 @@
 </head>
 
 <body>
-    <div class="navbar">
+<div class="navbar">
         <div class="maintitle">
             <a class="not-decorated" href="./index.php">Foodel</a>
         </div>
@@ -31,27 +31,27 @@
             </li>
             <li>
                 <div class="button menuItem">
-                    <a class="not-decorated" href="./login.html">Login</a>
+                    <a class="not-decorated" href="./login.php">Login</a>
                 </div>
             </li>
             <li>
                 <div class="button menuItem">
-                    <a class="not-decorated" href="./signup-cliente.html">Sign up Cliente</a>
+                    <a class="not-decorated" href="./signup-cliente.php">Sign up Cliente</a>
                 </div>
             </li>
             <li>
                 <div class="button menuItem">
-                    <a class="not-decorated" href="./signup-proprietario.html">Sign up Proprietario</a>
+                    <a class="not-decorated" href="./signup-proprietario.php">Sign up Proprietario</a>
                 </div>
             </li>
             <li>
                 <div class="button menuItem">
-                    <a class="not-decorated" href="./crearistorante.html">Crea ristorante</a>
+                    <a class="not-decorated" href="./crearistorante.php">Crea ristorante</a>
                 </div>
             </li>
             <li>
                 <div class="button menuItem">
-                    <a class="not-decorated" href="./creaprodotto.html">Crea prodotto</a>
+                    <a class="not-decorated" href="./creaprodotto.php">Crea prodotto</a>
                 </div>
             </li>
             <li>
@@ -98,41 +98,18 @@
         </script>
     </div>
 
-    <div class="signup-wrapper">
-        <div class="signup">
-            <form name="signup-form" action="../../server/src/submit-signup-request-cliente.php" method="get">
-                <h3 class="text-centered">Sign up</h3>
-                <h4 class="text-centered">Compila il form per la registrazione</h4>
-                <table>
-                    <tr>
-                        <td><label for="nome">Nome:</label></td>
-                        <td><input type="text" id="nome" name="nome"><br><br></td>
-                    </tr>
-                    <tr>
-                        <td><label for="cognome">Cognome:</label></td>
-                        <td><input type="text" id="cognome" name="cognome"><br><br></td>
-                    </tr>
-                    <tr>
-                        <td><label for="eta">Indirizzo:</label></td>
-                        <td><input type="text" id="indirizzo" name="indirizzo"><br><br></td>
-                    </tr>
-                    <tr>
-                        <td><label for="eta">Data di nascita:</label></td>
-                        <td><input type="date" id="data_di_nascita" name="data_di_nascita"><br><br></td>
-                    </tr>
-                    <tr>
-                        <td><label for="email">Email:</label></td>
-                        <td><input type="email" id="email" name="email"><br><br></td>
-                    </tr>
-                    <tr>
-                        <td><label for="password">Password:</label></td>
-                        <td><input type="password" id="password" name="password"><br><br></td>
-                    </tr>
-                </table>             
-                
-                <input type="submit" value="Submit">
-              </form>
-        </div>
+    <div class="login">
+        <form action="../../server/src/login.php" method="post">
+            <label for="email">Email:</label>
+
+            <input type="text" id="email" name="email"><br><br>
+
+            <label for="password">Password:</label>
+
+            <input type="password" id="password" name="password"><br><br>
+
+            <input type="submit" value="Submit">
+          </form>
     </div>
 
     <div class="footer">

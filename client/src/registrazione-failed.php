@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <link rel="stylesheet" type="text/css" href="../../style/style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
 </head>
+
 <body>
-    <div class="navbar">
+<div class="navbar">
         <div class="maintitle">
             <a class="not-decorated" href="./index.php">Foodel</a>
         </div>
@@ -36,27 +31,27 @@
             </li>
             <li>
                 <div class="button menuItem">
-                    <a class="not-decorated" href="./login.html">Login</a>
+                    <a class="not-decorated" href="./login.php">Login</a>
                 </div>
             </li>
             <li>
                 <div class="button menuItem">
-                    <a class="not-decorated" href="./signup-cliente.html">Sign up Cliente</a>
+                    <a class="not-decorated" href="./signup-cliente.php">Sign up Cliente</a>
                 </div>
             </li>
             <li>
                 <div class="button menuItem">
-                    <a class="not-decorated" href="./signup-proprietario.html">Sign up Proprietario</a>
+                    <a class="not-decorated" href="./signup-proprietario.php">Sign up Proprietario</a>
                 </div>
             </li>
             <li>
                 <div class="button menuItem">
-                    <a class="not-decorated" href="./crearistorante.html">Crea ristorante</a>
+                    <a class="not-decorated" href="./crearistorante.php">Crea ristorante</a>
                 </div>
             </li>
             <li>
                 <div class="button menuItem">
-                    <a class="not-decorated" href="./creaprodotto.html">Crea prodotto</a>
+                    <a class="not-decorated" href="./creaprodotto.php">Crea prodotto</a>
                 </div>
             </li>
             <li>
@@ -103,57 +98,15 @@
         </script>
     </div>
 
-    <div class="info-ristorante">
-        <div class="ristorante-barra-nome">
-            <h1 id="nome-ristorante" class="nome-ristorante">Pizzeria da Ivan</h1>
-        </div>
-        <div class="ristorante-barra-indirizzo" style="display: flex; justify-content: space-evenly; font-size: 12px;">
-            <h3 id="indirizzo-ristorante" class="indirizzo-ristorante">Via Dei Monti, 42</h3>
-            <h4 id="recensione" class="recensione">Recensione: ***</h4>
-        </div>
-    </div>
-
-    <div class="generale-menu">
-        <div class="categoria-menu">
-            <h3>Antipasto</h3>
-            <p>ANTIPASTO 1</p>
-            <p>ANTIPASTO 2</p>
-            <p>ANTIPASTO 3</p>
-            <p>ANTIPASTO 4</p>
-            <p>ANTIPASTO 5</p>
-        </div>
-        <div class="categoria-menu">
-            <h3>Primo</h3>
-            <p>PRIMO 1</p>
-            <p>PRIMO 2</p>
-            <p>PRIMO 3</p>
-            <p>PRIMO 4</p>
-            <p>PRIMO 5</p>
-        </div>
-        <div class="categoria-menu">
-            <h3>Secondo</h3>
-            <p>SECONDO 1</p>
-            <p>SECONDO 2</p>
-            <p>SECONDO 3</p>
-            <p>SECONDO 4</p>
-            <p>SECONDO 5</p>
-        </div>
-        <div class="categoria-menu">
-            <h3>Dessert</h3>
-            <p>DESSERT 1</p>
-            <p>DESSERT 2</p>
-            <p>DESSERT 3</p>
-            <p>DESSERT 4</p>
-            <p>DESSERT 5</p>
+    <div class="signup-wrapper">
+        <div class="signup">
+            <h3>Registrazione fallita.</h3>
         </div>
     </div>
 
     <div class="footer">
         FOODEL - Andrea De Giorgi - 2023
     </div>
-
-
-
-    
 </body>
+
 </html>

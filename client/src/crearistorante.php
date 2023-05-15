@@ -5,7 +5,7 @@
 </head>
 
 <body>
-    <div class="navbar">
+<div class="navbar">
         <div class="maintitle">
             <a class="not-decorated" href="./index.php">Foodel</a>
         </div>
@@ -31,27 +31,27 @@
             </li>
             <li>
                 <div class="button menuItem">
-                    <a class="not-decorated" href="./login.html">Login</a>
+                    <a class="not-decorated" href="./login.php">Login</a>
                 </div>
             </li>
             <li>
                 <div class="button menuItem">
-                    <a class="not-decorated" href="./signup-cliente.html">Sign up Cliente</a>
+                    <a class="not-decorated" href="./signup-cliente.php">Sign up Cliente</a>
                 </div>
             </li>
             <li>
                 <div class="button menuItem">
-                    <a class="not-decorated" href="./signup-proprietario.html">Sign up Proprietario</a>
+                    <a class="not-decorated" href="./signup-proprietario.php">Sign up Proprietario</a>
                 </div>
             </li>
             <li>
                 <div class="button menuItem">
-                    <a class="not-decorated" href="./crearistorante.html">Crea ristorante</a>
+                    <a class="not-decorated" href="./crearistorante.php">Crea ristorante</a>
                 </div>
             </li>
             <li>
                 <div class="button menuItem">
-                    <a class="not-decorated" href="./creaprodotto.html">Crea prodotto</a>
+                    <a class="not-decorated" href="./creaprodotto.php">Crea prodotto</a>
                 </div>
             </li>
             <li>
