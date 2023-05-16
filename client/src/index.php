@@ -121,7 +121,7 @@
         </div>
     </div>
 
-    <div class="banner-image">
+    <div class="banner-image" style="background-color: beige">
         <img class="image" style="max-width: 50%;" src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="banner" />
         <div style="max-width: 50%;">
             <p style="margin-top: 45px; margin-left: 30px; margin-bottom: 0px;"><b>Sezione</b></p>
@@ -131,6 +131,17 @@
                 Donec quis ante sit amet nulla tempor tempus. Suspendisse potenti. Sed nec est commodo diam viverra suscipit in nec felis. Suspendisse ornare aliquet justo, sed semper nisi ultricies sed. Sed ut mauris elementum, faucibus diam et, aliquet erat. Praesent orci nisl, bibendum eu erat ut, facilisis cursus metus. Vivamus in rhoncus quam. Morbi quis ultricies nisi.
             </p>
         </div>
+    </div>
+    <div class="banner-image">
+        <div style="max-width: 50%;">
+            <p style="margin-top: 45px; margin-left: 30px; margin-bottom: 0px;"><b>Sezione</b></p>
+            <br></br>
+            <p style="margin-top: 0px;margin-left: 30px; text-align: justify;text-justify: inter-word; max-width: 50%;">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc rutrum, velit eu malesuada scelerisque, nisl purus commodo purus, quis laoreet erat turpis auctor risus. Nulla tempor ultrices dui ac feugiat. Maecenas cursus nisl vel massa dignissim convallis quis ac ligula. Nam porttitor tincidunt lorem, elementum auctor justo. Morbi iaculis consectetur rhoncus. Etiam venenatis accumsan nibh ut gravida. Etiam a mauris varius, faucibus enim a, dapibus magna. In efficitur tristique tellus, sed dapibus dui. Praesent sollicitudin sodales lectus, sit amet dictum sem semper vel. Ut ligula erat, pretium quis nulla in, sodales laoreet nunc. Mauris at scelerisque mi.
+                Donec quis ante sit amet nulla tempor tempus. Suspendisse potenti. Sed nec est commodo diam viverra suscipit in nec felis. Suspendisse ornare aliquet justo, sed semper nisi ultricies sed. Sed ut mauris elementum, faucibus diam et, aliquet erat. Praesent orci nisl, bibendum eu erat ut, facilisis cursus metus. Vivamus in rhoncus quam. Morbi quis ultricies nisi.
+            </p>
+        </div>
+        <img class="image" style="max-width: 50%;" src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="banner" />
     </div>
 
     <footer><small>

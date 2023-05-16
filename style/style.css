@@ -110,10 +110,13 @@ body {
 .banner-image {
     display: flex;
     justify-content: left;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 30px 0 30px 0;
 }
 
 .image {
-    margin-top: 30px;
+    
     width: 50%;
     height: 500px;
     object-fit: cover;
