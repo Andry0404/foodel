@@ -7,7 +7,7 @@
 </head>
 
 <body>
-<div class="navbar">
+    <div class="navbar">
         <div class="maintitle" style="width: fit-content;">
             <a class="not-decorated" href="./index.php">
                 <div class="material-symbols-outlined" style="font-size: 38px;">
@@ -101,8 +101,7 @@
     <div class="signup-wrapper">
         <div class="signup">
             <form name="signup-form" action="../../server/src/creaprodotto.php" method="get">
-                <h3 class="text-centered">Crea il tuo prodotto</h3>
-                <h4 class="text-centered">Compila il form per la creazione</h4>
+                <h2 class="text-centered">Crea un prodotto</h2>
                 <table>
                     <tr>
                         <td><label for="nome">Nome:</label></td>
@@ -122,7 +121,9 @@
                     </tr>
                 </table>
 
-                <input type="submit" value="Submit">
+                <div style="display: flex; justify-content: center;">
+                    <input style="border-radius: 180px; border: 0px; padding: 4px 8px 4px 8px; cursor: pointer;" type="submit" value="Crea">
+                </div>
             </form>
         </div>
     </div>

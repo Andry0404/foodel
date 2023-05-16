@@ -101,8 +101,7 @@
     <div class="signup-wrapper">
         <div class="signup">
             <form name="signup-form" action="../../server/src/submit-signup-request-proprietario.php" method="get">
-                <h3 class="text-centered">Sign up</h3>
-                <h4 class="text-centered">Compila il form per la registrazione</h4>
+                <h2 class="text-centered">Registrazione nuovo proprietario</h2>
                 <table>
                     <tr>
                         <td><label for="nome">Nome:</label></td>
@@ -126,7 +125,9 @@
                     </tr>
                 </table>
 
-                <input type="submit" value="Submit">
+                <div style="display: flex; justify-content: center;">
+                    <input style="border-radius: 180px; border: 0px; padding: 4px 8px 4px 8px; cursor: pointer;" type="submit" value="Registrati">
+                </div>
             </form>
         </div>
     </div>

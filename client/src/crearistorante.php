@@ -7,7 +7,7 @@
 </head>
 
 <body>
-<div class="navbar">
+    <div class="navbar">
         <div class="maintitle" style="width: fit-content;">
             <a class="not-decorated" href="./index.php">
                 <div class="material-symbols-outlined" style="font-size: 38px;">
@@ -101,11 +101,10 @@
     <div class="signup-wrapper">
         <div class="signup">
             <form name="signup-form" action="../../server/src/crearistorante.php" method="get">
-                <h3 class="text-centered">Crea il tuo ristorante</h3>
-                <h4 class="text-centered">Compila il form per la creazione</h4>
+                <h2 class="text-centered">Registra il tuo ristorante</h2>
                 <table>
                     <tr>
-                        <td><label for="nome">Nome:</label></td>
+                        <td><label for="nome">Nome ristorante:</label></td>
                         <td><input type="text" id="nome" name="nome"><br><br></td>
                     </tr>
                     <tr>
@@ -118,15 +117,17 @@
                     </tr>
                     <tr>
                         <td><label for="orario_apertura">Orario apertura:</label></td>
-                        <td><input type="text" id="orario_apertura" name="orario_apertura"><br><br></td>
+                        <td><input type="time" id="orario_apertura" name="orario_apertura"><br><br></td>
                     </tr>
                     <tr>
                         <td><label for="orario_chiusura">Orario chiusura:</label></td>
-                        <td><input type="text" id="orario_chiusura" name="orario_chiusura"><br><br></td>
+                        <td><input type="time" id="orario_chiusura" name="orario_chiusura"><br><br></td>
                     </tr>
                 </table>
 
-                <input type="submit" value="Submit">
+                <div style="display: flex; justify-content: center;">
+                    <input style="border-radius: 180px; border: 0px; padding: 4px 8px 4px 8px; cursor: pointer;" type="submit" value="Registra ristorante">
+                </div>
             </form>
         </div>
     </div>

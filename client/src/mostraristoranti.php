@@ -98,10 +98,6 @@
         </script>
     </div>
 
-    <div class="banner-image">
-        <img class="image" src="https://images.unsplash.com/photo-1589010588553-46e8e7c21788?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1260&q=80" alt="banner" />
-    </div>
-
     <footer><small>
             <div class="material-symbols-outlined" style="font-size: 12px;">
                 ramen_dining

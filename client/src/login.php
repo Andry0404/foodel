@@ -114,7 +114,10 @@
                 <input type="password" id="password" name="password"><br><br>
             </div>
 
-            <input type="submit" value="Submit" style="margin-top: 24px;">
+            <div style="display: flex; justify-content: center;">
+                <input style="border-radius: 180px; border: 0px; padding: 4px 8px 4px 8px; cursor: pointer; margin-top: 30px" type="submit" value="Accedi">
+            </div>
+
         </form>
     </div>
 
