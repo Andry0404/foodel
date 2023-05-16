@@ -98,6 +98,7 @@
         </script>
     </div>
 
+    <h1 style="display: flex; justify-content:center; font-weight: 1000;"><b>Un posto a tavola, per tutti.</b></h1>
     <div class='mainpage-info'>
         <div class='mainpage-item-left'>
             <p style='font-size:24px'><b>Per i ristoranti</b></p>

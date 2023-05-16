@@ -28,12 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $query = $query . "';";
     $result = mysqli_query($connection, $query);
 
-    $user = mysqli_fetch_array($result);
-    print("<p>" . $user["email"] . "</p>");
-    print("<p>" . $user["hashed_password"] . "</p>");
-    print("<p>" . $_POST["password"] . "</p>");
-    print("<p>" . password_hash($_POST["password"], PASSWORD_DEFAULT) . "</p>");
-    
+    $user = mysqli_fetch_array($result);    
 
     if (password_verify($_POST["password"], $user["hashed_password"])) {
         session_start();

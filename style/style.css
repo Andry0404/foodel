@@ -126,8 +126,8 @@ body {
 }
 
 .signup {
-    box-shadow: 0px 0px 30px #FC5319;   
-    background: linear-gradient(to right, #F59B18 20%,rgba(253, 198, 115, 0.466));
+    box-shadow: 0px 0px 30px #FC5319;
+    background: linear-gradient(to right, #F59B18 20%, rgba(253, 198, 115, 0.466));
     margin: 15px 0px 5 0px 0px;
     width: 40%;
     padding: 15px 30px 15px 30px;
@@ -216,7 +216,7 @@ body {
 .mainpage-info {
     display: flex;
     justify-content: center;
-    margin-top: 24px;
+    margin-top: 32px;
 }
 
 .mainpage-item-left {
@@ -228,7 +228,7 @@ body {
     border-radius: 10px;
     margin-right: 32px;
     margin-left: 60px;
-    transition: 1s;
+    transition: 0.4s;
     background: linear-gradient(to right, #F59B18 20%,
             rgba(253, 198, 115, 0.466)), url(https://images.unsplash.com/photo-1592417817038-d13fd7342605?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80);
 }
@@ -236,6 +236,8 @@ body {
 .mainpage-item-left:hover {
     background: linear-gradient(to right, #F59B18 50%,
             rgba(223, 153, 48, 0.726)), url(https://images.unsplash.com/photo-1592417817038-d13fd7342605?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80);
+    box-shadow: 0px 0px 30px #b43a11;
+    width: 60%;
 }
 
 .mainpage-item-right {
@@ -255,6 +257,8 @@ body {
 .mainpage-item-right:hover {
     background: linear-gradient(to right, #F59B18 50%,
             rgba(223, 153, 48, 0.726)), url(https://images.unsplash.com/photo-1586816001966-79b736744398?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80);
+    box-shadow: 0px 0px 30px #b43a11;
+    width: 60%;
 }
 
 .subscribe-button {
