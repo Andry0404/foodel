@@ -108,9 +108,17 @@ body {
     background-color: #F23018;
 }
 
-.banner-image {
+.banner-image-left {
     display: flex;
     justify-content: left;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 30px 0 30px 0;
+}
+
+.banner-image-right {
+    display: flex;
+    justify-content: right;
     margin-top: 40px;
     margin-bottom: 40px;
     padding: 30px 0 30px 0;
@@ -121,6 +129,24 @@ body {
     width: 50%;
     height: 500px;
     object-fit: cover;
+}
+
+.image-left {
+    width: 30%;
+    transition: 0.5s;
+}
+
+.image-left:hover {
+    width: 50%;
+}
+
+.image-right {
+    width: 30%;
+    transition: 0.5s;
+}
+
+.image-right:hover {
+    width: 50%;
 }
 
 .login {
@@ -281,7 +307,7 @@ body {
 
 footer {
     text-align: center;
-    padding: 5px;
+    padding: 15px;
     background-color: #F23018;
     margin-top: 1em;
 }
