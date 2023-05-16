@@ -7,7 +7,7 @@
 </head>
 
 <body>
-<div class="navbar">
+    <div class="navbar">
         <div class="maintitle" style="width: fit-content;">
             <a class="not-decorated" href="./index.php">
                 <div class="material-symbols-outlined" style="font-size: 38px;">
@@ -100,15 +100,21 @@
 
     <div class="login">
         <form action="../../server/src/login.php" method="post">
-            <label for="email">Email:</label>
+            <div style="display:flex; justify-content: left;">
+                <label for="email">Email:</label>
+            </div>
+            <div style="display:flex; justify-content: right;">
+                <input type="text" id="email" name="email"><br><br>
+            </div>
 
-            <input type="text" id="email" name="email"><br><br>
+            <div style="display:flex; justify-content: left; margin-top: 12px;">
+                <label for="password">Password:</label>
+            </div>
+            <div style="display:flex; justify-content: right;">
+                <input type="password" id="password" name="password"><br><br>
+            </div>
 
-            <label for="password">Password:</label>
-
-            <input type="password" id="password" name="password"><br><br>
-
-            <input type="submit" value="Submit">
+            <input type="submit" value="Submit" style="margin-top: 24px;">
         </form>
     </div>
 
