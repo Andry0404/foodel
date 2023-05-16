@@ -7,7 +7,7 @@
 </head>
 
 <body>
-<div class="navbar">
+    <div class="navbar">
         <div class="maintitle" style="width: fit-content;">
             <a class="not-decorated" href="./index.php">
                 <div class="material-symbols-outlined" style="font-size: 38px;">
@@ -98,33 +98,8 @@
         </script>
     </div>
 
-    <div class="signup-wrapper">
-        <div class="signup">
-            <form name="signup-form" action="../../server/src/creaprodotto.php" method="get">
-                <h3 class="text-centered">Crea il tuo prodotto</h3>
-                <h4 class="text-centered">Compila il form per la creazione</h4>
-                <table>
-                    <tr>
-                        <td><label for="nome">Nome:</label></td>
-                        <td><input type="text" id="nome" name="nome"><br><br></td>
-                    </tr>
-                    <tr>
-                        <td><label for="prezzo">Prezzo:</label></td>
-                        <td><input type="text" id="prezzo" name="prezzo"><br><br></td>
-                    </tr>
-                    <tr>
-                        <td><label for="allergeni">Allergeni:</label></td>
-                        <td><input type="text" id="allergeni" name="allergeni"><br><br></td>
-                    </tr>
-                    <tr>
-                        <td><label for="ingredienti">Ingredienti:</label></td>
-                        <td><input type="text" id="ingredienti" name="ingredienti"><br><br></td>
-                    </tr>
-                </table>
-
-                <input type="submit" value="Submit">
-            </form>
-        </div>
+    <div class="banner-image">
+        <img class="image" src="https://images.unsplash.com/photo-1589010588553-46e8e7c21788?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1260&q=80" alt="banner" />
     </div>
 
     <footer><small>

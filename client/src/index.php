@@ -3,22 +3,21 @@
 <head>
     <link rel="stylesheet" type="text/css" href="../../style/style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
 <body>
     <div class="navbar">
-        <div class="maintitle">
-            <a class="not-decorated" href="./index.php">Foodel</a>
+        <div class="maintitle" style="width: fit-content;">
+            <a class="not-decorated" href="./index.php">
+                <div class="material-symbols-outlined" style="font-size: 38px;">
+                    ramen_dining
+                </div>
+                <b>foodel</b>
+            </a>
         </div>
-        <p>User: <?php
-            session_start();
-            if(isset($_SESSION['user_id'])) {
-                print('ok');
-            } else {
-                print('no');
-            }
-        ?>
-        </p>
+        <div style='font-size:14px; width: 100%;'>Tu pensi al <b><i>food</i></b>, noi pensiamo al <b><i>delivery</i></b>.</div>
+
         <ul class="menu">
             <li>
                 <div>
@@ -57,7 +56,7 @@
             </li>
             <li>
                 <div class="button menuItem">
-                    <a class="not-decorated" href="../../server/src/logout.php">logout</a>
+                    <a class="not-decorated" href="../../server/src/logout.php">Logout</a>
                 </div>
             </li>
         </ul>
@@ -90,7 +89,7 @@
             }
 
             menuItems.forEach(
-                function (menuItem) {
+                function(menuItem) {
                     menuItem.addEventListener("click", toggleMenu);
                 }
             )
@@ -99,15 +98,56 @@
         </script>
     </div>
 
-    <div class="banner-image">
-        <img class="image"
-            src="https://images.unsplash.com/photo-1589010588553-46e8e7c21788?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1260&q=80"
-            alt="banner" />
+    <div class='mainpage-info'>
+        <div class='mainpage-item-left'>
+            <p style='font-size:24px'><b>Per i ristoranti</b></p>
+            <p>
+                Promuovi la tua cucina, il tuo ristorante, il tuo stile.
+            </p>
+            <p>
+                Iscriviti gratuitamente, registra il tuo ristorante ed aggiungi i tuoi piatti: <br /> i clienti non vedono l'ora di scoprire ristoranti nuovi ed il prossimo potresti essere tu!
+            </p>
+            <div onclick="location.href='signup-cliente.php'" class='subscribe-button'>Iscriviti e registra il tuo ristorante!</div>
+        </div>
+        <div class='mainpage-item-right'>
+            <p style='font-size:24px'><b>Per i clienti</b></p>
+            <p>Da solo o in compagnia, preparati a gustare sapori unici!</p>
+            <p>
+                Da ogni quartiere della tua città, ristoranti, locali, gelaterie e tante altre attività <br />
+                sono pronti ad offrirti bontà e piatti dal sapore indimenticabile!
+            </p>
+            <div onclick="location.href='signup-cliente.php'" class='subscribe-button'>Registrati ed inizia ad ordinare!</div>
+        </div>
     </div>
 
-    <div class="footer">
-        FOODEL - Andrea De Giorgi - 2023
+    <div class="banner-image">
+        <img class="image" style="max-width: 50%;" src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="banner" />
+        <div style="max-width: 50%;">
+            <p style="margin-top: 45px; margin-left: 30px; margin-bottom: 0px;"><b>Sezione</b></p>
+            <br></br>
+            <p style="margin-top: 0px;margin-left: 30px; text-align: justify;text-justify: inter-word; max-width: 50%;">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc rutrum, velit eu malesuada scelerisque, nisl purus commodo purus, quis laoreet erat turpis auctor risus. Nulla tempor ultrices dui ac feugiat. Maecenas cursus nisl vel massa dignissim convallis quis ac ligula. Nam porttitor tincidunt lorem, elementum auctor justo. Morbi iaculis consectetur rhoncus. Etiam venenatis accumsan nibh ut gravida. Etiam a mauris varius, faucibus enim a, dapibus magna. In efficitur tristique tellus, sed dapibus dui. Praesent sollicitudin sodales lectus, sit amet dictum sem semper vel. Ut ligula erat, pretium quis nulla in, sodales laoreet nunc. Mauris at scelerisque mi.
+                Donec quis ante sit amet nulla tempor tempus. Suspendisse potenti. Sed nec est commodo diam viverra suscipit in nec felis. Suspendisse ornare aliquet justo, sed semper nisi ultricies sed. Sed ut mauris elementum, faucibus diam et, aliquet erat. Praesent orci nisl, bibendum eu erat ut, facilisis cursus metus. Vivamus in rhoncus quam. Morbi quis ultricies nisi.
+            </p>
+        </div>
     </div>
+
+    <footer><small>
+            <div class="material-symbols-outlined" style="font-size: 12px;">
+                ramen_dining
+            </div>
+            <b>Foodel - Copyright © 2023 Andrea De Giorgi. All Rights Reserved.</b>
+            <p>User: <?php
+                        session_start();
+                        if (isset($_SESSION['user_id'])) {
+                            print('ok');
+                        } else {
+                            print('no');
+                        }
+                        ?>
+            </p>
+        </small>
+    </footer>
 </body>
 
 </html>

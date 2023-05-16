@@ -1,23 +1,23 @@
 <html>
+
 <head>
     <link rel="stylesheet" type="text/css" href="../../style/style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
 <body>
 <div class="navbar">
-        <div class="maintitle">
-            <a class="not-decorated" href="./index.php">Foodel</a>
+        <div class="maintitle" style="width: fit-content;">
+            <a class="not-decorated" href="./index.php">
+                <div class="material-symbols-outlined" style="font-size: 38px;">
+                    ramen_dining
+                </div>
+                <b>foodel</b>
+            </a>
         </div>
-        <p>User: <?php
-            session_start();
-            if(isset($_SESSION['user_id'])) {
-                print('ok');
-            } else {
-                print('no');
-            }
-        ?>
-        </p>
+        <div style='font-size:14px; width: 100%;'>Tu pensi al <b><i>food</i></b>, noi pensiamo al <b><i>delivery</i></b>.</div>
+
         <ul class="menu">
             <li>
                 <div>
@@ -56,7 +56,7 @@
             </li>
             <li>
                 <div class="button menuItem">
-                    <a class="not-decorated" href="../../server/src/logout.php">logout</a>
+                    <a class="not-decorated" href="../../server/src/logout.php">Logout</a>
                 </div>
             </li>
         </ul>
@@ -89,7 +89,7 @@
             }
 
             menuItems.forEach(
-                function (menuItem) {
+                function(menuItem) {
                     menuItem.addEventListener("click", toggleMenu);
                 }
             )
@@ -109,12 +109,25 @@
             <input type="password" id="password" name="password"><br><br>
 
             <input type="submit" value="Submit">
-          </form>
+        </form>
     </div>
 
-    <div class="footer">
-        FOODEL - Andrea De Giorgi - 2023
-    </div>
+    <footer><small>
+            <div class="material-symbols-outlined" style="font-size: 12px;">
+                ramen_dining
+            </div>
+            <b>Foodel - Copyright © 2023 Andrea De Giorgi. All Rights Reserved.</b>
+            <p>User: <?php
+                        session_start();
+                        if (isset($_SESSION['user_id'])) {
+                            print('ok');
+                        } else {
+                            print('no');
+                        }
+                        ?>
+            </p>
+        </small>
+    </footer>
 </body>
 
 </html>
