@@ -73,7 +73,7 @@ body {
     background-color: white;
     padding: 3px 12px 3px 12px;
     width: 250px;
-    transition: 0.5s;
+    transition: 0.8s;
 }
 
 .button:hover {
@@ -233,6 +233,7 @@ body {
     color: white;
     list-style: none;
     padding-top: 4rem;
+    margin: 0;
 }
 
 .showMenu {
