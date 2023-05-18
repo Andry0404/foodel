@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             if($type == "cliente") $_SESSION["userID"] = $user["id_cliente"];
             else $_SESSION["userID"] = $user["id_proprietario"];
             $_SESSION["email"] = $user["email"];
-            $_SESSION["name"] = $user["nome"];
+            $_SESSION["nome"] = $user["nome"];
             $_SESSION["type"] = $type;
             mysqli_close($connection);
             header("Location: http://localhost/foodel/client/src/index.php");
