@@ -127,7 +127,7 @@ body {
 .image {
     
     width: 50%;
-    height: 500px;
+    height: 200px;
     object-fit: cover;
 }
 
