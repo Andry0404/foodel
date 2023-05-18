@@ -50,15 +50,15 @@
         if ($myquery) {
             // redirect: manda ad un'altra pagina
             mysqli_close($connection);
-            header("Location: http://localhost/foodel/client/src/registrazione-success.html");
+            header("Location: http://localhost/foodel/client/src/registrazione-success.php");
             die();
         } else {
             mysqli_close($connection);
-            header("Location: http://localhost/foodel/client/src/registrazione-failed.html?query=$query");
+            header("Location: http://localhost/foodel/client/src/registrazione-failed.php");
             die();
         }
     } else {
-        header("Location: http://localhost/foodel/client/src/registrazione-failed.html");
+        header("Location: http://localhost/foodel/client/src/registrazione-failed.php");
         die();
     }
 
