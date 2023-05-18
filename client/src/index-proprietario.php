@@ -122,28 +122,39 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
         </script>
     </div>
 
-    <h1 style="display: flex; justify-content:center; font-weight: 1000;"><b>Un posto a tavola, per tutti.</b></h1>
+    <h1 style="display: flex; justify-content:left; margin-left: 150px; font-weight: 1000;"><b>Dashboard</b></h1>
     <div class='mainpage-info'>
-        <div class='mainpage-item-left'>
-            <p style='font-size:24px'><b>Per i ristoranti</b></p>
+        <div class='proprietario-item-left'>
+            <p style='font-size:24px'><b>Informazioni ristorante</b></p>
             <p>
-                Promuovi la tua cucina, il tuo ristorante, il tuo stile.
+                Da questa pagina potrai vedere tutte le informazioni riguardanti il tuo ristorante!
             </p>
-            <p>
-                Iscriviti gratuitamente, registra il tuo ristorante ed aggiungi i tuoi piatti: <br /> i clienti non vedono l'ora di scoprire ristoranti nuovi ed il prossimo potresti essere tu!
-            </p>
-            <div onclick="location.href='signup-cliente.php'" class='subscribe-button'>Iscriviti e registra il tuo ristorante!</div>
+            <div onclick="location.href='signup-cliente.php'" class='subscribe-button'>Scopri di più</div>
         </div>
-        <div class='mainpage-item-right'>
-            <p style='font-size:24px'><b>Per i clienti</b></p>
-            <p>Da solo o in compagnia, preparati a gustare sapori unici!</p>
+        <div class='proprietario-item-right'>
+            <p style='font-size:24px'><b>Aggiungi un nuovo piatto</b></p>
             <p>
-                Da ogni quartiere della tua città, ristoranti, locali, gelaterie e tante altre attività <br />
-                sono pronti ad offrirti bontà e piatti dal sapore indimenticabile!
+                Registra un nuovo piatto da aggiungere al tuo menu!
             </p>
-            <div onclick="location.href='signup-cliente.php'" class='subscribe-button'>Registrati ed inizia ad ordinare!</div>
+            <div onclick="location.href='signup-cliente.php'" class='subscribe-button'>Crea piatto</div>
         </div>
     </div>
+    <div class='mainpage-info'>
+        <div class='proprietario-item-left'>
+            <p style='font-size:24px'><b>Informazioni ristorante</b></p>
+            <p>
+                Da questa pagina potrai vedere tutte le informazioni riguardanti il tuo ristorante!
+            </p>
+            <div onclick="location.href='signup-cliente.php'" class='subscribe-button'>Scopri di più</div>
+        </div>
+        <div class='proprietario-item-right'>
+            <p style='font-size:24px'><b>Aggiungi un nuovo piatto</b></p>
+            <p>
+                Registra un nuovo piatto da aggiungere al tuo menu!
+            </p>
+            <div onclick="location.href='signup-cliente.php'" class='subscribe-button'>Crea piatto</div>
+        </div>
+    </div>  
 
     <div class="banner-image-left" style="background-color: beige">
         <img class="image image-left" style="max-width: 50%; border-bottom-right-radius: 800px; box-shadow: 0 0 20px #999999;" src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="banner" />
