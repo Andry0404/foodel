@@ -146,21 +146,24 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
     <div class="banner-image-left" style="background-color: beige">
         <img class="image image-left" style="max-width: 50%; border-bottom-right-radius: 800px; box-shadow: 0 0 20px #999999;" src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="banner" />
         <div style="max-width: 50%;">
-            <p style="margin-top: 45px; margin-left: 48px; margin-bottom: 0px;"><b>Sezione</b></p>
+            <p style="margin-top: 45px; margin-left: 48px; margin-bottom: 0px;"><b>Proprietari</b></p>
             <br></br>
             <p style="margin-top: 0px;margin-left: 48px; text-align: justify;text-justify: inter-word; max-width: fit-content; margin-right: 48px;">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc rutrum, velit eu malesuada scelerisque, nisl purus commodo purus, quis laoreet erat turpis auctor risus. Nulla tempor ultrices dui ac feugiat. Maecenas cursus nisl vel massa dignissim convallis quis ac ligula. Nam porttitor tincidunt lorem, elementum auctor justo. Morbi iaculis consectetur rhoncus. Etiam venenatis accumsan nibh ut gravida. Etiam a mauris varius, faucibus enim a, dapibus magna. In efficitur tristique tellus, sed dapibus dui. Praesent sollicitudin sodales lectus, sit amet dictum sem semper vel. Ut ligula erat, pretium quis nulla in, sodales laoreet nunc. Mauris at scelerisque mi.
-                Donec quis ante sit amet nulla tempor tempus. Suspendisse potenti. Sed nec est commodo diam viverra suscipit in nec felis. Suspendisse ornare aliquet justo, sed semper nisi ultricies sed. Sed ut mauris elementum, faucibus diam et, aliquet erat. Praesent orci nisl, bibendum eu erat ut, facilisis cursus metus. Vivamus in rhoncus quam. Morbi quis ultricies nisi.
+                Vuoi che il tuo ristorante diventi famoso e apprezzato da migliaia di persone? Ti presentiamo <b>FOODEL</b> un sito web dove puoi registrare il tuo ristorante mettendo solo il nome, l'indirizzo e il numero di telefono,
+                e in velocità della luce lo apprezzeranno tutti.</br>
+                Grazie al nostro servizio potrai conoscere nuovi clienti che scopriranno la tua cucina, la tua tradizione culinaria, i tuoi piatti.</br>
             </p>
         </div>
     </div>
     <div class="banner-image-right">
         <div style="max-width: 50%;">
-            <p style="margin-top: 45px; margin-left: 48px; margin-bottom: 0px;"><b>Sezione</b></p>
+            <p style="margin-top: 45px; margin-left: 48px; margin-bottom: 0px;"><b>Clienti</b></p>
             <br></br>
             <p style="margin-top: 0px;margin-left: 48px; text-align: justify;text-justify: inter-word; max-width: fit-content; margin-right: 48px;">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc rutrum, velit eu malesuada scelerisque, nisl purus commodo purus, quis laoreet erat turpis auctor risus. Nulla tempor ultrices dui ac feugiat. Maecenas cursus nisl vel massa dignissim convallis quis ac ligula. Nam porttitor tincidunt lorem, elementum auctor justo. Morbi iaculis consectetur rhoncus. Etiam venenatis accumsan nibh ut gravida. Etiam a mauris varius, faucibus enim a, dapibus magna. In efficitur tristique tellus, sed dapibus dui. Praesent sollicitudin sodales lectus, sit amet dictum sem semper vel. Ut ligula erat, pretium quis nulla in, sodales laoreet nunc. Mauris at scelerisque mi.
-                Donec quis ante sit amet nulla tempor tempus. Suspendisse potenti. Sed nec est commodo diam viverra suscipit in nec felis. Suspendisse ornare aliquet justo, sed semper nisi ultricies sed. Sed ut mauris elementum, faucibus diam et, aliquet erat. Praesent orci nisl, bibendum eu erat ut, facilisis cursus metus. Vivamus in rhoncus quam. Morbi quis ultricies nisi.
+                Vuoi mangiare bene da solo o in compagnia a casa? Allora sei nel posto giusto: ti presentiamo <b>FOODEL</b> dove puoi ordinare tutto quello che vuoi nei tuoi ristoranti preferiti o nei ristoranti vicino a te,
+                in modo semplice e veloce, basta solo che scegli il posto, cosa vuoi mangiare e la via di destinazione e in un batter d'occhio saremo da te.</br>
+                Buon appetito!
+                
             </p>
         </div>
         <img class="image image-right" style="max-width: 50%; border-top-left-radius: 800px; box-shadow: 0 0 20px #965931;" src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="banner" />
