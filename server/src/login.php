@@ -56,6 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $_SESSION["nome"] = $user["nome"];
             $_SESSION["type"] = $type;
             mysqli_close($connection);
+            sleep(1);
             header("Location: http://localhost/foodel/client/src/index.php");
         } else {
             mysqli_close($connection);
