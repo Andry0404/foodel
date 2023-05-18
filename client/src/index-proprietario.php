@@ -124,63 +124,37 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
 
     <h1 style="display: flex; justify-content:left; margin-left: 150px; font-weight: 1000;"><b>Dashboard</b></h1>
     <div class='mainpage-info'>
-        <div class='proprietario-item-left'>
+        <div class='proprietario-item-info'>
             <p style='font-size:24px'><b>Informazioni ristorante</b></p>
             <p>
-                Da questa pagina potrai vedere tutte le informazioni riguardanti il tuo ristorante!
+                Da questa pagina potrai vedere tutte le informazioni riguardanti il tuo ristorante.
             </p>
-            <div onclick="location.href='signup-cliente.php'" class='subscribe-button'>Scopri di più</div>
+            <div onclick="location.href='mostramenu.php'" class='subscribe-button'>Scopri di più</div>
         </div>
-        <div class='proprietario-item-right'>
+        <div class='proprietario-item-add'>
             <p style='font-size:24px'><b>Aggiungi un nuovo piatto</b></p>
             <p>
-                Registra un nuovo piatto da aggiungere al tuo menu!
+                Registra un nuovo piatto da aggiungere al tuo menu.
             </p>
-            <div onclick="location.href='signup-cliente.php'" class='subscribe-button'>Crea piatto</div>
+            <div onclick="location.href='creaprodotto.php'" class='subscribe-button'>Crea piatto</div>
         </div>
     </div>
     <div class='mainpage-info'>
-        <div class='proprietario-item-left'>
-            <p style='font-size:24px'><b>Informazioni ristorante</b></p>
+        <div class='proprietario-item-orders'>
+            <p style='font-size:24px'><b>Visualizza ordini</b></p>
             <p>
-                Da questa pagina potrai vedere tutte le informazioni riguardanti il tuo ristorante!
+                Visualizza tutti gli ordini attivi.
             </p>
-            <div onclick="location.href='signup-cliente.php'" class='subscribe-button'>Scopri di più</div>
+            <div onclick="location.href='signup-cliente.php'" class='subscribe-button'>Vedi ordini</div>
         </div>
-        <div class='proprietario-item-right'>
-            <p style='font-size:24px'><b>Aggiungi un nuovo piatto</b></p>
+        <div class='proprietario-item-review'>
+            <p style='font-size:24px'><b>Visualizza recensioni</b></p>
             <p>
-                Registra un nuovo piatto da aggiungere al tuo menu!
+                In questa pagina sono raccolte tutte le recensioni ricevute.
             </p>
-            <div onclick="location.href='signup-cliente.php'" class='subscribe-button'>Crea piatto</div>
+            <div onclick="location.href='signup-cliente.php'" class='subscribe-button'>Vedi recensioni</div>
         </div>
     </div>  
-
-    <div class="banner-image-left" style="background-color: beige">
-        <img class="image image-left" style="max-width: 50%; border-bottom-right-radius: 800px; box-shadow: 0 0 20px #999999;" src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="banner" />
-        <div style="max-width: 50%;">
-            <p style="margin-top: 45px; margin-left: 48px; margin-bottom: 0px;"><b>Proprietari</b></p>
-            <br></br>
-            <p style="margin-top: 0px;margin-left: 48px; text-align: justify;text-justify: inter-word; max-width: fit-content; margin-right: 48px;">
-                Vuoi che il tuo ristorante diventi famoso e apprezzato da migliaia di persone? Ti presentiamo <b>FOODEL</b> un sito web dove puoi registrare il tuo ristorante mettendo solo il nome, l'indirizzo e il numero di telefono,
-                e in velocità della luce lo apprezzeranno tutti.</br>
-                Grazie al nostro servizio potrai conoscere nuovi clienti che scopriranno la tua cucina, la tua tradizione culinaria, i tuoi piatti.</br>
-            </p>
-        </div>
-    </div>
-    <div class="banner-image-right">
-        <div style="max-width: 50%;">
-            <p style="margin-top: 45px; margin-left: 48px; margin-bottom: 0px;"><b>Clienti</b></p>
-            <br></br>
-            <p style="margin-top: 0px;margin-left: 48px; text-align: justify;text-justify: inter-word; max-width: fit-content; margin-right: 48px;">
-                Vuoi mangiare bene da solo o in compagnia a casa? Allora sei nel posto giusto: ti presentiamo <b>FOODEL</b> dove puoi ordinare tutto quello che vuoi nei tuoi ristoranti preferiti o nei ristoranti vicino a te,
-                in modo semplice e veloce, basta solo che scegli il posto, cosa vuoi mangiare e la via di destinazione e in un batter d'occhio saremo da te.</br>
-                Buon appetito!
-                
-            </p>
-        </div>
-        <img class="image image-right" style="max-width: 50%; border-top-left-radius: 800px; box-shadow: 0 0 20px #965931;" src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="banner" />
-    </div>
 
     <footer><small>
             <div class="material-symbols-outlined" style="font-size: 12px;">

@@ -57,6 +57,17 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
             </a>
         </div>
         <div style='font-size:14px; width: 100%;'>Tu pensi al <b><i>food</i></b>, noi pensiamo al <b><i>delivery</i></b>.</div>
+        <?php if (isset($_SESSION["userID"])) {
+            print("<div style='margin-top: 15px; background-color: white; width: fit-content; border-radius: 60px; padding: 7px 14px 7px 14px'>");
+
+            if ($nome != "") {
+                echo ("Utente loggato: " . $nome);
+                echo (" - " . $type);
+            }
+
+            print("</div>");
+        }
+        ?>
 
         <ul class="menu">
             <li>
