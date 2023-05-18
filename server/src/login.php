@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $head_query_cliente = "SELECT * FROM Cliente WHERE email='";
     $head_query_proprietario = "SELECT * FROM Proprietario WHERE email='";
 
-    $query = $query . $email;
+    $query = $email;
     $query = $query . "';";
 
     $query_cliente = $head_query_cliente . $query;
