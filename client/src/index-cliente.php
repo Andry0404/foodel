@@ -127,7 +127,7 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
         <div class='cliente-item-left'>
             <p style='font-size:24px'><b>ristorante 1</b></p>
             <p>
-                Promuovi la tua cucina, il tuo ristorante, il tuo stile.
+               nome, orario apertura - chiusura
             </p>
             <p>
                 Iscriviti gratuitamente, registra il tuo ristorante ed aggiungi i tuoi piatti: <br /> i clienti non vedono l'ora di scoprire ristoranti nuovi ed il prossimo potresti essere tu!
@@ -136,7 +136,7 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
         </div>
         <div class='cliente-item-right'>
             <p style='font-size:24px'><b>Ristorante 2</b></p>
-            <p>Da solo o in compagnia, preparati a gustare sapori unici!</p>
+            <p>  nome, orario apertura - chiusura</p>
             <p>
                 Da ogni quartiere della tua città, ristoranti, locali, gelaterie e tante altre attività <br />
                 sono pronti ad offrirti bontà e piatti dal sapore indimenticabile!
@@ -148,9 +148,9 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
 
     <div class='mainpage-info'>
         <div class='cliente-item-left'>
-            <p style='font-size:24px'><b>ristorante 1</b></p>
+            <p style='font-size:24px'><b>ristorante 3</b></p>
             <p>
-                Promuovi la tua cucina, il tuo ristorante, il tuo stile.
+            nome, orario apertura - chiusura
             </p>
             <p>
                 Iscriviti gratuitamente, registra il tuo ristorante ed aggiungi i tuoi piatti: <br /> i clienti non vedono l'ora di scoprire ristoranti nuovi ed il prossimo potresti essere tu!
@@ -158,18 +158,39 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
             <div onclick="location.href='signup-cliente.php'" class='subscribe-button'>Iscriviti e registra il tuo ristorante!</div>
         </div>
         <div class='cliente-item-right'>
-            <p style='font-size:24px'><b>Ristorante 2</b></p>
-            <p>Da solo o in compagnia, preparati a gustare sapori unici!</p>
+            <p style='font-size:24px'><b>Ristorante 4</b></p>
+            <p>nome, orario apertura - chiusura</p>
             <p>
                 Da ogni quartiere della tua città, ristoranti, locali, gelaterie e tante altre attività <br />
                 sono pronti ad offrirti bontà e piatti dal sapore indimenticabile!
             </p>
             <div onclick="location.href='signup-cliente.php'" class='subscribe-button'>Registrati ed inizia ad ordinare!</div>
         </div>
-        
     </div>
 
-        
+    <div class='mainpage-info'>
+        <div class='cliente-item-left'>
+            <p style='font-size:24px'><b>ristorante 5</b></p>
+            <p>
+            nome, orario apertura - chiusura
+            </p>
+            <p>
+                Iscriviti gratuitamente, registra il tuo ristorante ed aggiungi i tuoi piatti: <br /> i clienti non vedono l'ora di scoprire ristoranti nuovi ed il prossimo potresti 
+            </p>
+            <div onclick="location.href='signup-cliente.php'" class='subscribe-button'>Iscriviti e registra il tuo ristorante!</div>
+        </div>
+        <div class='cliente-item-right'>
+            <p style='font-size:24px'><b>Ristorante 6</b></p>
+            <p>nome, orario apertura - chiusura</p>
+            <p>
+                Da ogni quartiere della tua città, ristoranti, locali, gelaterie e tante altre attività <br />
+                sono pronti ad offrirti bontà e piatti dal sapore indimenticabile!
+            </p>
+            <div onclick="location.href='signup-cliente.php'" class='subscribe-button'>Registrati ed inizia ad ordinare!</div>
+        </div>
+    </div>
+
+            </br>
 
     <footer><small>
             <div class="material-symbols-outlined" style="font-size: 12px;">
