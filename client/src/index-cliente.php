@@ -124,7 +124,7 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
 
     <h1 style="display: flex; justify-content:center; font-weight: 1000;"><b>Ecco alcuni ristoranti</b></h1>
     <div class='mainpage-info'>
-        <div class='mainpage-item-left'>
+        <div class='cliente-item-left'>
             <p style='font-size:24px'><b>ristorante 1</b></p>
             <p>
                 Promuovi la tua cucina, il tuo ristorante, il tuo stile.
@@ -134,7 +134,7 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
             </p>
             <div onclick="location.href='signup-cliente.php'" class='subscribe-button'>Iscriviti e registra il tuo ristorante!</div>
         </div>
-        <div class='mainpage-item-right'>
+        <div class='cliente-item-right'>
             <p style='font-size:24px'><b>Ristorante 2</b></p>
             <p>Da solo o in compagnia, preparati a gustare sapori unici!</p>
             <p>
@@ -147,7 +147,7 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
     </div>
 
     <div class='mainpage-info'>
-        <div class='mainpage-item-left'>
+        <div class='cliente-item-left'>
             <p style='font-size:24px'><b>ristorante 1</b></p>
             <p>
                 Promuovi la tua cucina, il tuo ristorante, il tuo stile.
@@ -157,7 +157,7 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
             </p>
             <div onclick="location.href='signup-cliente.php'" class='subscribe-button'>Iscriviti e registra il tuo ristorante!</div>
         </div>
-        <div class='mainpage-item-right'>
+        <div class='cliente-item-right'>
             <p style='font-size:24px'><b>Ristorante 2</b></p>
             <p>Da solo o in compagnia, preparati a gustare sapori unici!</p>
             <p>
