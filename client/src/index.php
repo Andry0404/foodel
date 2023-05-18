@@ -1,3 +1,14 @@
+<?php
+
+session_start();
+
+if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
+    $email = $_SESSION["email"];
+    $type = $_SESSION["type"];
+}
+
+?>
+
 <html>
 
 <head>
@@ -17,6 +28,17 @@
             </a>
         </div>
         <div style='font-size:14px; width: 100%;'>Tu pensi al <b><i>food</i></b>, noi pensiamo al <b><i>delivery</i></b>.</div>
+        <?php if (isset($_SESSION["userID"])) {
+            print("<div style='margin-top: 15px; background-color: white; width: fit-content; border-radius: 60px; padding: 7px 14px 7px 14px'>");
+
+            if ($email != "") {
+                echo ("Utente loggato: " . $email);
+                echo (" - " . $type);
+            }
+
+            print("</div>");
+        }
+        ?>
 
         <ul class="menu">
             <li>
@@ -152,14 +174,7 @@
                 ramen_dining
             </div>
             <b>Foodel - Copyright © 2023 Andrea De Giorgi. All Rights Reserved.</b>
-            <p>User: <?php
-                        session_start();
-                        if (isset($_SESSION['user_id'])) {
-                            print('ok');
-                        } else {
-                            print('no');
-                        }
-                        ?>
+            <p>User: <?php echo ($email); ?>
             </p>
         </small>
     </footer>

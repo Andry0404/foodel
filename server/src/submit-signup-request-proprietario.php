@@ -5,6 +5,15 @@
 <body>
     <?php
 
+    function debug_to_console($data)
+    {
+        $output = $data;
+        if (is_array($output))
+            $output = implode(',', $output);
+
+        echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+    }
+
     $nome = $_GET['nome'];
     $cognome = $_GET['cognome'];
     $data_di_nascita = $_GET['data_di_nascita'];
@@ -29,24 +38,28 @@
         $campi_validi = false;
     }
 
-    if ($campi_validi) {// hashing della password
-        $password = sha1($password);
+    if ($campi_validi) { // hashing della password
+        $password = password_hash($password, PASSWORD_DEFAULT);
         $connection = mysqli_connect("localhost", "root", "", "foodelDB") or die("ERROR: connection error with foodelDB. " . mysqli_connect_error());
 
-        $query = "INSERT INTO Proprietario(cognome, nome, email, data_nascita, hashed_password) ";
-        $query = $query . "VALUES('$cognome', '$nome', '$email', '$data_di_nascita', '$password');";
+        $query = "INSERT INTO Proprietario(nome, cognome, email, data_nascita, hashed_password) ";
+        $query = $query . "VALUES('$nome', '$cognome', '$email', '$data_di_nascita', '$password');";
 
         $myquery = mysqli_query($connection, $query);
 
         if ($myquery) {
-            print("<h1>Inserzione eseguita!</h1>");
+            // redirect: manda ad un'altra pagina
+            mysqli_close($connection);
+            header("Location: http://localhost/foodel/client/src/registrazione-success.html");
+            die();
         } else {
-            print("<h1>Inserzione non eseguita!</h1>");
+            mysqli_close($connection);
+            header("Location: http://localhost/foodel/client/src/registrazione-failed.html?query=$query");
+            die();
         }
-
-        mysqli_close($connection);
     } else {
-        print("<h1>Non sono ammessi campi vuoti.</h1>");
+        header("Location: http://localhost/foodel/client/src/registrazione-failed.html");
+        die();
     }
 
     ?>

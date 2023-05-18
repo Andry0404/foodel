@@ -23,19 +23,42 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         die("Errore nella connessione al db: " . mysqli_connect_error());
     }
 
-    $query = "SELECT * FROM Cliente WHERE email='";
+    $head_query_cliente = "SELECT * FROM Cliente WHERE email='";
+    $head_query_proprietario = "SELECT * FROM Proprietario WHERE email='";
+
     $query = $query . $email;
     $query = $query . "';";
-    $result = mysqli_query($connection, $query);
 
-    $user = mysqli_fetch_array($result);    
+    $query_cliente = $head_query_cliente . $query;
+    $query_proprietario = $head_query_proprietario . $query;
 
-    if (password_verify($_POST["password"], $user["hashed_password"])) {
-        session_start();
-        session_regenerate_id();
-        $_SESSION["user_id"] = $user["id_cliente"];
-        mysqli_close($connection);
-        header("Location: http://localhost/foodel/client/src/index.php");
-        die();
+    $result = mysqli_query($connection, $query_cliente);
+
+    if (mysqli_num_rows($result) == 0) {
+        $result = mysqli_query($connection, $query_proprietario);
+        if (mysqli_num_rows($result) == 0) {
+            $type = "error";
+        } else {
+            $type = "proprietario";
+        }
+    } else {
+        $type = "cliente";
+    }
+
+    if ($type != "error") {
+        $user = mysqli_fetch_array($result);
+
+        if (password_verify($_POST["password"], $user["hashed_password"])) {
+            session_start();
+            if($type == "cliente") $_SESSION["userID"] = $user["id_cliente"];
+            else $_SESSION["userID"] = $user["id_proprietario"];
+            $_SESSION["email"] = $user["email"];
+            $_SESSION["name"] = $user["nome"];
+            $_SESSION["type"] = $type;
+            mysqli_close($connection);
+            header("Location: http://localhost/foodel/client/src/index.php");
+        } else {
+            mysqli_close($connection);
+        }
     }
 }
