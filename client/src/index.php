@@ -3,7 +3,7 @@
 session_start();
 
 if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
-    $email = $_SESSION["email"];
+    $nome = $_SESSION["nome"];
     $type = $_SESSION["type"];
 }
 
@@ -31,8 +31,8 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
         <?php if (isset($_SESSION["userID"])) {
             print("<div style='margin-top: 15px; background-color: white; width: fit-content; border-radius: 60px; padding: 7px 14px 7px 14px'>");
 
-            if ($email != "") {
-                echo ("Utente loggato: " . $email);
+            if ($nome != "") {
+                echo ("Utente loggato: " . $nome);
                 echo (" - " . $type);
             }
 

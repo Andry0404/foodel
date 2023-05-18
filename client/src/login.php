@@ -1,4 +1,15 @@
 <?php
+
+session_start();
+
+if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
+    $nome = $_SESSION["nome"];
+    $type = $_SESSION["type"];
+}
+
+?>
+
+<?php
    include("../../server/src/config.php");
    session_start();
    
