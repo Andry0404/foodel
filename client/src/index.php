@@ -174,8 +174,6 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
                 ramen_dining
             </div>
             <b>Foodel - Copyright © 2023 Andrea De Giorgi. All Rights Reserved.</b>
-            <p>User: <?php echo ($email); ?>
-            </p>
         </small>
     </footer>
 </body>
