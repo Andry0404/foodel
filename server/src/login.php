@@ -28,14 +28,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $query = $query . "';";
     $result = mysqli_query($connection, $query);
 
-    $user = mysqli_fetch_array($result);    
+    $user = mysqli_fetch_array($result);
 
     if (password_verify($_POST["password"], $user["hashed_password"])) {
         session_start();
-        session_regenerate_id();
-        $_SESSION["user_id"] = $user["id_cliente"];
+        $_SESSION["userID"] = $user["id_cliente"];
+        $_SESSION["email"] = $user["email"];
         mysqli_close($connection);
         header("Location: http://localhost/foodel/client/src/index.php");
-        die();
+    }
+    else {
+        mysqli_close($connection);
     }
 }

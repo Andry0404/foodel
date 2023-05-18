@@ -1,3 +1,13 @@
+<?php
+
+session_start();
+
+if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
+    $email = $_SESSION["email"];
+}
+
+?>
+
 <html>
 
 <head>
@@ -149,14 +159,7 @@
                 ramen_dining
             </div>
             <b>Foodel - Copyright © 2023 Andrea De Giorgi. All Rights Reserved.</b>
-            <p>User: <?php
-                        session_start();
-                        if (isset($_SESSION['user_id'])) {
-                            print('ok');
-                        } else {
-                            print('no');
-                        }
-                        ?>
+            <p>User: <?php echo($email); ?>
             </p>
         </small>
     </footer>

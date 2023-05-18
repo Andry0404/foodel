@@ -1,3 +1,32 @@
+<?php
+   include("../../server/src/config.php");
+   session_start();
+   
+   if($_SERVER["REQUEST_METHOD"] == "POST") {
+      // username and password sent from form 
+      
+      $myemail = mysqli_real_escape_string($db,$_POST['email']);
+      $mypassword = mysqli_real_escape_string($db,$_POST['password']); 
+      
+      $sql = "SELECT id FROM Cliente WHERE email = '$myemail' and passcode = '$mypassword'";
+      $result = mysqli_query($db,$sql);
+      $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+      $active = $row['active'];
+      
+      $count = mysqli_num_rows($result);
+      
+      // If result matched $myusername and $mypassword, table row must be 1 row
+		
+      if($count == 1) {
+         $_SESSION['userID'] = $myusername;
+         
+         header("location: welcome.php");
+      }else {
+         $error = "Your Login Name or Password is invalid";
+      }
+   }
+?>
+
 <html>
 
 <head>
@@ -128,8 +157,8 @@
             <b>Foodel - Copyright © 2023 Andrea De Giorgi. All Rights Reserved.</b>
             <p>User: <?php
                         session_start();
-                        if (isset($_SESSION['user_id'])) {
-                            print('ok');
+                        if (isset($_SESSION["userID"])) {
+                            print('ok '. $_SESSION["email"]);
                         } else {
                             print('no');
                         }
