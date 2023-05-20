@@ -11,7 +11,7 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
 
 if ($type !== "cliente") {
     header("Refresh:0; url=http://localhost/foodel/client/src/index.php");
-} 
+}
 ?>
 
 <html>
@@ -23,7 +23,7 @@ if ($type !== "cliente") {
 </head>
 
 <body>
-<div class="navbar">
+    <div class="navbar">
         <div style="display: flex; flex-direction: row; justify-content: space-between;">
             <div>
                 <div class="maintitle" style="width: fit-content;">
@@ -67,76 +67,40 @@ if ($type !== "cliente") {
         }
         ?>
     </div>
-
-    <h1 style="display: flex; justify-content:center; font-weight: 1000;"><b>Ecco alcuni ristoranti</b></h1>
+    
+    <h1 style="display: flex; justify-content:left; margin-left: 150px; font-weight: 1000;"><b>Dashboard</b></h1>
     <div class='mainpage-info'>
-        <div class='cliente-item-left'>
-            <p style='font-size:24px'><b>ristorante 1</b></p>
+        <div class='proprietario-item-info'>
+            <p style='font-size:24px'><b>Informazioni personali</b></p>
             <p>
-                nome, orario apertura - chiusura
+                Da questa pagina potrai vedere tutte le tue informazioni personali.
             </p>
-            <p>
-                Iscriviti gratuitamente, registra il tuo ristorante ed aggiungi i tuoi piatti: <br /> i clienti non vedono l'ora di scoprire ristoranti nuovi ed il prossimo potresti essere tu!
-            </p>
-            <div onclick="location.href='signup-cliente.php'" class='subscribe-button'>Iscriviti e registra il tuo ristorante!</div>
+            <div onclick="location.href='mostra-ristorante-proprietario.php'" class='subscribe-button'>Scopri di più</div>
         </div>
-        <div class='cliente-item-right'>
-            <p style='font-size:24px'><b>Ristorante 2</b></p>
-            <p> nome, orario apertura - chiusura</p>
+        <div class='proprietario-item-add'>
+            <p style='font-size:24px'><b>Fai un ordine</b></p>
             <p>
-                Da ogni quartiere della tua città, ristoranti, locali, gelaterie e tante altre attività <br />
-                sono pronti ad offrirti bontà e piatti dal sapore indimenticabile!
+                Scegli un ristorante e fai il tuo ordine!
             </p>
-            <div onclick="location.href='signup-cliente.php'" class='subscribe-button'>Registrati ed inizia ad ordinare!</div>
-        </div>
-
-    </div>
-
-    <div class='mainpage-info'>
-        <div class='cliente-item-left'>
-            <p style='font-size:24px'><b>ristorante 3</b></p>
-            <p>
-                nome, orario apertura - chiusura
-            </p>
-            <p>
-                Iscriviti gratuitamente, registra il tuo ristorante ed aggiungi i tuoi piatti: <br /> i clienti non vedono l'ora di scoprire ristoranti nuovi ed il prossimo potresti essere tu!
-            </p>
-            <div onclick="location.href='signup-cliente.php'" class='subscribe-button'>Iscriviti e registra il tuo ristorante!</div>
-        </div>
-        <div class='cliente-item-right'>
-            <p style='font-size:24px'><b>Ristorante 4</b></p>
-            <p>nome, orario apertura - chiusura</p>
-            <p>
-                Da ogni quartiere della tua città, ristoranti, locali, gelaterie e tante altre attività <br />
-                sono pronti ad offrirti bontà e piatti dal sapore indimenticabile!
-            </p>
-            <div onclick="location.href='signup-cliente.php'" class='subscribe-button'>Registrati ed inizia ad ordinare!</div>
+            <div onclick="location.href='mostra-ristoranti.php'" class='subscribe-button'>Ordina</div>
         </div>
     </div>
-
     <div class='mainpage-info'>
-        <div class='cliente-item-left'>
-            <p style='font-size:24px'><b>ristorante 5</b></p>
+        <div class='proprietario-item-orders'>
+            <p style='font-size:24px'><b>Visualizza ordini</b></p>
             <p>
-                nome, orario apertura - chiusura
+                Visualizza tutti i tuoi ordini passati.
             </p>
-            <p>
-                Iscriviti gratuitamente, registra il tuo ristorante ed aggiungi i tuoi piatti: <br /> i clienti non vedono l'ora di scoprire ristoranti nuovi ed il prossimo potresti
-            </p>
-            <div onclick="location.href='signup-cliente.php'" class='subscribe-button'>Iscriviti e registra il tuo ristorante!</div>
+            <div onclick="location.href='signup-cliente.php'" class='subscribe-button'>Vedi ordini passati</div>
         </div>
-        <div class='cliente-item-right'>
-            <p style='font-size:24px'><b>Ristorante 6</b></p>
-            <p>nome, orario apertura - chiusura</p>
+        <div class='proprietario-item-review'>
+            <p style='font-size:24px'><b>Lascia una recensione</b></p>
             <p>
-                Da ogni quartiere della tua città, ristoranti, locali, gelaterie e tante altre attività <br />
-                sono pronti ad offrirti bontà e piatti dal sapore indimenticabile!
+                In questa pagina puoi lasciare una recensione per un tuo ordine passato.
             </p>
-            <div onclick="location.href='signup-cliente.php'" class='subscribe-button'>Registrati ed inizia ad ordinare!</div>
+            <div onclick="location.href='signup-cliente.php'" class='subscribe-button'>Crea recensione</div>
         </div>
     </div>
-
-    </br>
 
     <footer><small>
             <div class="material-symbols-outlined" style="font-size: 12px;">
