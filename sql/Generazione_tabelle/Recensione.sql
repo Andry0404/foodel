@@ -8,5 +8,7 @@ create table Recensione(
   ),
   valutazione_recensione varchar(255) not null,
   id_ristorante int,
-  FOREIGN KEY (id_ristorante) REFERENCES Ristorante(id_ristorante)
+  id_ordine int,
+  FOREIGN KEY (id_ristorante) REFERENCES Ristorante(id_ristorante),
+  FOREIGN KEY (id_ordine) REFERENCES Ordina_da(id_ordine)
 );
