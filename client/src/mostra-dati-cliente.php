@@ -1,5 +1,11 @@
 <?php
 
+define('DB_SERVER', 'localhost');
+define('DB_USERNAME', 'root');
+define('DB_PASSWORD', '');
+define('DB_DATABASE', 'foodelDB');
+$connection = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
+
 session_start();
 
 if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
@@ -9,9 +15,30 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
     $type = "vuoto";
 }
 
-if ($type !== "cliente") {
-    header("Refresh:0; url=http://localhost/foodel/client/src/index.php");
+if ($type === "vuoto" || $type === "proprietario") {
+    header("Location: http://localhost/foodel/client/src/index.php");
 }
+
+$id_cliente = $_SESSION["userID"];
+
+$query = "SELECT * FROM Cliente WHERE id_cliente=$id_cliente;";
+
+$result = mysqli_query($connection, $query);
+
+$n = mysqli_num_rows($result);
+
+if ($n === 0) {
+    $result_type = 0;
+    $cliente = null;
+} else {
+    $result_type = 1;
+    $cliente = mysqli_fetch_array($result);
+}
+
+if ($result_type === 0) {
+    header("Location: http://localhost/foodel/client/src/risultato_non_disponibile.php");
+}
+
 ?>
 
 <html>
@@ -67,38 +94,27 @@ if ($type !== "cliente") {
         }
         ?>
     </div>
-    
-    <h1 style="display: flex; justify-content:left; margin-left: 150px; font-weight: 1000;"><b>Dashboard</b></h1>
-    <div class='mainpage-info'>
-        <div class='proprietario-item-info'>
-            <p style='font-size:24px'><b>Informazioni personali</b></p>
+
+    <div class='ristorante-info'>
+        <div class='ristorante-item'>
+            <p style='font-size:24px'><b><?php echo $cliente["nome"] ?>&nbsp;<?php echo $cliente["cognome"] ?></b></p>
             <p>
-                Da questa pagina potrai vedere tutte le tue informazioni personali.
+                <span style="font-size: 16px" class="material-symbols-outlined">
+                    mail
+                </span>
+                Orario apertura: <?php echo $cliente["email"] ?>
             </p>
-            <div onclick="location.href='mostra-dati-cliente.php'" class='subscribe-button'>Scopri di più</div>
-        </div>
-        <div class='proprietario-item-add'>
-            <p style='font-size:24px'><b>Fai un ordine</b></p>
             <p>
-                Scegli un ristorante e fai il tuo ordine!
+                <span style="font-size: 16px" class="material-symbols-outlined">
+                    event
+                </span>
+                Data di nascita: <?php echo $cliente["data_nascita"] ?>
             </p>
-            <div onclick="location.href='mostra-ristoranti.php'" class='subscribe-button'>Ordina</div>
-        </div>
-    </div>
-    <div class='mainpage-info'>
-        <div class='proprietario-item-orders'>
-            <p style='font-size:24px'><b>Visualizza ordini</b></p>
-            <p>
-                Visualizza tutti i tuoi ordini passati.
+            <p><span style="font-size: 16px" class="material-symbols-outlined">
+                    home
+                </span>
+                Indirizzo: <?php echo $cliente["indirizzo"] ?>
             </p>
-            <div onclick="location.href='signup-cliente.php'" class='subscribe-button'>Vedi ordini passati</div>
-        </div>
-        <div class='proprietario-item-review'>
-            <p style='font-size:24px'><b>Lascia una recensione</b></p>
-            <p>
-                In questa pagina puoi lasciare una recensione per un tuo ordine passato.
-            </p>
-            <div onclick="location.href='signup-cliente.php'" class='subscribe-button'>Crea recensione</div>
         </div>
     </div>
 
