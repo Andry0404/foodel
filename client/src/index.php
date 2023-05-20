@@ -9,10 +9,9 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
     $type = "vuoto";
 }
 
-if($type == "cliente")
-{
+if ($type == "cliente") {
     header("Refresh:0; url=http://localhost/foodel/client/src/index-cliente.php");
-} else if($type == "proprietario") {
+} else if ($type == "proprietario") {
     header("Refresh:0; url=http://localhost/foodel/client/src/index-proprietario.php");
 }
 
@@ -28,15 +27,37 @@ if($type == "cliente")
 
 <body>
     <div class="navbar">
-        <div class="maintitle" style="width: fit-content;">
-            <a class="not-decorated" href="./index.php">
-                <div class="material-symbols-outlined" style="font-size: 38px;">
-                    ramen_dining
+        <div style="display: flex; flex-direction: row; justify-content: space-between;">
+            <div>
+                <div class="maintitle" style="width: fit-content;">
+                    <a class="not-decorated" href="./index.php">
+                        <div class="material-symbols-outlined" style="font-size: 38px;">
+                            ramen_dining
+                        </div>
+                        <b>foodel</b>
+                    </a>
                 </div>
-                <b>foodel</b>
-            </a>
+                <div style='font-size:14px; width: 100%;'>Tu pensi al <b><i>food</i></b>, noi pensiamo al <b><i>delivery</i></b>.</div>
+            </div>
+            <div style="margin: 25px 60px 0px 0px;">
+                <?php
+                if ($type === "vuoto") {
+                    print("
+                <div class=\"button menuItem\">
+                    <a class=\"not-decorated\" href=\"./login.php\">Login</a>
+                </div>");
+                }
+                ?>
+                <?php
+                if ($type !== "vuoto") {
+                    print("
+                <div class=\"button menuItem\">
+                    <a class=\"not-decorated\" href=\"../../server/src/logout.php\">Logout</a>
+                </div>");
+                }
+                ?>
+            </div>
         </div>
-        <div style='font-size:14px; width: 100%;'>Tu pensi al <b><i>food</i></b>, noi pensiamo al <b><i>delivery</i></b>.</div>
         <?php if (isset($_SESSION["userID"])) {
             print("<div style='margin-top: 15px; background-color: white; width: fit-content; border-radius: 60px; padding: 7px 14px 7px 14px'>");
 
@@ -48,85 +69,6 @@ if($type == "cliente")
             print("</div>");
         }
         ?>
-
-        <ul class="menu">
-            <li>
-                <div>
-                    <h1 style="color: white;">Menu</h1>
-                </div>
-            </li>
-            <li>
-                <div class="button menuItem">
-                    FAQ
-                </div>
-            </li>
-            <li>
-                <div class="button menuItem">
-                    <a class="not-decorated" href="./login.php">Login</a>
-                </div>
-            </li>
-            <li>
-                <div class="button menuItem">
-                    <a class="not-decorated" href="./signup-cliente.php">Sign up Cliente</a>
-                </div>
-            </li>
-            <li>
-                <div class="button menuItem">
-                    <a class="not-decorated" href="./signup-proprietario.php">Sign up Proprietario</a>
-                </div>
-            </li>
-            <li>
-                <div class="button menuItem">
-                    <a class="not-decorated" href="./crearistorante.php">Crea ristorante</a>
-                </div>
-            </li>
-            <li>
-                <div class="button menuItem">
-                    <a class="not-decorated" href="./creaprodotto.php">Crea prodotto</a>
-                </div>
-            </li>
-            <li>
-                <div class="button menuItem">
-                    <a class="not-decorated" href="../../server/src/logout.php">Logout</a>
-                </div>
-            </li>
-        </ul>
-
-        <button class="hamburger">
-            <!-- material icons https://material.io/resources/icons/ -->
-            <i class="menuIcon material-icons">menu</i>
-            <i class="closeIcon material-icons">close</i>
-        </button>
-
-        <script>
-            const menu = document.querySelector(".menu");
-            const menuItems = document.querySelectorAll(".menuItem");
-            const hamburger = document.querySelector(".hamburger");
-            const closeIcon = document.querySelector(".closeIcon");
-            const menuIcon = document.querySelector(".menuIcon");
-
-            closeIcon.style.display = 'none';
-
-            function toggleMenu() {
-                if (menu.classList.contains("showMenu")) {
-                    menu.classList.remove("showMenu");
-                    closeIcon.style.display = "none";
-                    menuIcon.style.display = "block";
-                } else {
-                    menu.classList.add("showMenu");
-                    closeIcon.style.display = "block";
-                    menuIcon.style.display = "none";
-                }
-            }
-
-            menuItems.forEach(
-                function(menuItem) {
-                    menuItem.addEventListener("click", toggleMenu);
-                }
-            )
-
-            hamburger.addEventListener("click", toggleMenu);
-        </script>
     </div>
 
     <h1 style="display: flex; justify-content:center; font-weight: 1000;"><b>Un posto a tavola, per tutti.</b></h1>
@@ -172,7 +114,7 @@ if($type == "cliente")
                 Vuoi mangiare bene da solo o in compagnia a casa? Allora sei nel posto giusto: ti presentiamo <b>FOODEL</b> dove puoi ordinare tutto quello che vuoi nei tuoi ristoranti preferiti o nei ristoranti vicino a te,
                 in modo semplice e veloce, basta solo che scegli il posto, cosa vuoi mangiare e la via di destinazione e in un batter d'occhio saremo da te.</br>
                 Buon appetito!
-                
+
             </p>
         </div>
         <img class="image image-right" style="max-width: 50%; border-top-left-radius: 800px; box-shadow: 0 0 20px #965931;" src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="banner" />

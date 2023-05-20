@@ -20,16 +20,38 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
 </head>
 
 <body>
-    <div class="navbar">
-        <div class="maintitle" style="width: fit-content;">
-            <a class="not-decorated" href="./index.php">
-                <div class="material-symbols-outlined" style="font-size: 38px;">
-                    ramen_dining
+<div class="navbar">
+        <div style="display: flex; flex-direction: row; justify-content: space-between;">
+            <div>
+                <div class="maintitle" style="width: fit-content;">
+                    <a class="not-decorated" href="./index.php">
+                        <div class="material-symbols-outlined" style="font-size: 38px;">
+                            ramen_dining
+                        </div>
+                        <b>foodel</b>
+                    </a>
                 </div>
-                <b>foodel</b>
-            </a>
+                <div style='font-size:14px; width: 100%;'>Tu pensi al <b><i>food</i></b>, noi pensiamo al <b><i>delivery</i></b>.</div>
+            </div>
+            <div style="margin: 25px 60px 0px 0px;">
+                <?php
+                if ($type === "vuoto") {
+                    print("
+                <div class=\"button menuItem\">
+                    <a class=\"not-decorated\" href=\"./login.php\">Login</a>
+                </div>");
+                }
+                ?>
+                <?php
+                if ($type !== "vuoto") {
+                    print("
+                <div class=\"button menuItem\">
+                    <a class=\"not-decorated\" href=\"../../server/src/logout.php\">Logout</a>
+                </div>");
+                }
+                ?>
+            </div>
         </div>
-        <div style='font-size:14px; width: 100%;'>Tu pensi al <b><i>food</i></b>, noi pensiamo al <b><i>delivery</i></b>.</div>
         <?php if (isset($_SESSION["userID"])) {
             print("<div style='margin-top: 15px; background-color: white; width: fit-content; border-radius: 60px; padding: 7px 14px 7px 14px'>");
 
@@ -41,85 +63,6 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
             print("</div>");
         }
         ?>
-
-        <ul class="menu">
-            <li>
-                <div>
-                    <h1 style="color: white;">Menu</h1>
-                </div>
-            </li>
-            <li>
-                <div class="button menuItem">
-                    FAQ
-                </div>
-            </li>
-            <li>
-                <div class="button menuItem">
-                    <a class="not-decorated" href="./login.php">Login</a>
-                </div>
-            </li>
-            <li>
-                <div class="button menuItem">
-                    <a class="not-decorated" href="./signup-cliente.php">Sign up Cliente</a>
-                </div>
-            </li>
-            <li>
-                <div class="button menuItem">
-                    <a class="not-decorated" href="./signup-proprietario.php">Sign up Proprietario</a>
-                </div>
-            </li>
-            <li>
-                <div class="button menuItem">
-                    <a class="not-decorated" href="./crearistorante.php">Crea ristorante</a>
-                </div>
-            </li>
-            <li>
-                <div class="button menuItem">
-                    <a class="not-decorated" href="./creaprodotto.php">Crea prodotto</a>
-                </div>
-            </li>
-            <li>
-                <div class="button menuItem">
-                    <a class="not-decorated" href="../../server/src/logout.php">Logout</a>
-                </div>
-            </li>
-        </ul>
-
-        <button class="hamburger">
-            <!-- material icons https://material.io/resources/icons/ -->
-            <i class="menuIcon material-icons">menu</i>
-            <i class="closeIcon material-icons">close</i>
-        </button>
-
-        <script>
-            const menu = document.querySelector(".menu");
-            const menuItems = document.querySelectorAll(".menuItem");
-            const hamburger = document.querySelector(".hamburger");
-            const closeIcon = document.querySelector(".closeIcon");
-            const menuIcon = document.querySelector(".menuIcon");
-
-            closeIcon.style.display = 'none';
-
-            function toggleMenu() {
-                if (menu.classList.contains("showMenu")) {
-                    menu.classList.remove("showMenu");
-                    closeIcon.style.display = "none";
-                    menuIcon.style.display = "block";
-                } else {
-                    menu.classList.add("showMenu");
-                    closeIcon.style.display = "block";
-                    menuIcon.style.display = "none";
-                }
-            }
-
-            menuItems.forEach(
-                function(menuItem) {
-                    menuItem.addEventListener("click", toggleMenu);
-                }
-            )
-
-            hamburger.addEventListener("click", toggleMenu);
-        </script>
     </div>
 
     <h1 style="display: flex; justify-content:center; font-weight: 1000;"><b>Ecco alcuni ristoranti</b></h1>
@@ -127,7 +70,7 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
         <div class='cliente-item-left'>
             <p style='font-size:24px'><b>ristorante 1</b></p>
             <p>
-               nome, orario apertura - chiusura
+                nome, orario apertura - chiusura
             </p>
             <p>
                 Iscriviti gratuitamente, registra il tuo ristorante ed aggiungi i tuoi piatti: <br /> i clienti non vedono l'ora di scoprire ristoranti nuovi ed il prossimo potresti essere tu!
@@ -136,21 +79,21 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
         </div>
         <div class='cliente-item-right'>
             <p style='font-size:24px'><b>Ristorante 2</b></p>
-            <p>  nome, orario apertura - chiusura</p>
+            <p> nome, orario apertura - chiusura</p>
             <p>
                 Da ogni quartiere della tua città, ristoranti, locali, gelaterie e tante altre attività <br />
                 sono pronti ad offrirti bontà e piatti dal sapore indimenticabile!
             </p>
             <div onclick="location.href='signup-cliente.php'" class='subscribe-button'>Registrati ed inizia ad ordinare!</div>
         </div>
-        
+
     </div>
 
     <div class='mainpage-info'>
         <div class='cliente-item-left'>
             <p style='font-size:24px'><b>ristorante 3</b></p>
             <p>
-            nome, orario apertura - chiusura
+                nome, orario apertura - chiusura
             </p>
             <p>
                 Iscriviti gratuitamente, registra il tuo ristorante ed aggiungi i tuoi piatti: <br /> i clienti non vedono l'ora di scoprire ristoranti nuovi ed il prossimo potresti essere tu!
@@ -172,10 +115,10 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
         <div class='cliente-item-left'>
             <p style='font-size:24px'><b>ristorante 5</b></p>
             <p>
-            nome, orario apertura - chiusura
+                nome, orario apertura - chiusura
             </p>
             <p>
-                Iscriviti gratuitamente, registra il tuo ristorante ed aggiungi i tuoi piatti: <br /> i clienti non vedono l'ora di scoprire ristoranti nuovi ed il prossimo potresti 
+                Iscriviti gratuitamente, registra il tuo ristorante ed aggiungi i tuoi piatti: <br /> i clienti non vedono l'ora di scoprire ristoranti nuovi ed il prossimo potresti
             </p>
             <div onclick="location.href='signup-cliente.php'" class='subscribe-button'>Iscriviti e registra il tuo ristorante!</div>
         </div>
@@ -190,7 +133,7 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
         </div>
     </div>
 
-            </br>
+    </br>
 
     <footer><small>
             <div class="material-symbols-outlined" style="font-size: 12px;">
