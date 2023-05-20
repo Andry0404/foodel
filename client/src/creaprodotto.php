@@ -7,6 +7,25 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
     $type = $_SESSION["type"];
 }
 
+if (isset($_GET["result"])) {
+    switch ($_GET["result"]) {
+        case 0:
+            $outmsg = "Errore: campi vuoti non ammessi.";
+            break;
+
+        case 1:
+            $outmsg = "Inserzione completata.";
+            break;
+
+        case 2:
+            $outmsg = "ERRORE.";
+            break;
+
+        default:
+            $outmsg = "";
+            break;
+    }
+}
 ?>
 
 <html>
@@ -39,7 +58,7 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
             print("</div>");
         }
         ?>
-        
+
         <ul class="menu">
             <li>
                 <div>
@@ -131,7 +150,7 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
                     </tr>
                     <tr>
                         <td><label for="prezzo">Prezzo:</label></td>
-                        <td><input type="text" id="prezzo" name="prezzo"><br><br></td>
+                        <td><input type="number" id="prezzo" name="prezzo"><br><br></td>
                     </tr>
                     <tr>
                         <td><label for="allergeni">Allergeni:</label></td>
@@ -145,6 +164,10 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
 
                 <div style="display: flex; justify-content: center;">
                     <input style="border-radius: 180px; border: 0px; padding: 4px 8px 4px 8px; cursor: pointer;" type="submit" value="Crea">
+                </div>
+
+                <div style="display: flex; justify-content: center;">
+                    <p><?php echo $outmsg ?></p>
                 </div>
             </form>
         </div>

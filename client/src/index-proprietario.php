@@ -9,6 +9,12 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
     $type = "vuoto";
 }
 
+if($type !== "proprietario") {
+    header("Location: http://localhost/foodel/client/src/index.php");
+} else {
+    $id_ristorante = $_SESSION["id_ristorante"];
+}
+
 ?>
 
 <html>
@@ -129,7 +135,7 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
             <p>
                 Da questa pagina potrai vedere tutte le informazioni riguardanti il tuo ristorante.
             </p>
-            <div onclick="location.href='mostramenu.php'" class='subscribe-button'>Scopri di più</div>
+            <div onclick="location.href='mostraristoranti.php'" class='subscribe-button'>Scopri di più</div>
         </div>
         <div class='proprietario-item-add'>
             <p style='font-size:24px'><b>Aggiungi un nuovo piatto</b></p>

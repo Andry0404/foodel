@@ -1,50 +1,53 @@
-<html>
+<?php
+session_start();
 
-<head></head>
+$nome = $_GET['nome'];
+$ingredienti = $_GET['ingredienti'];
+$prezzo = $_GET['prezzo'];
+$allergeni = $_GET['allergeni'];
+$id_ristorante = $_SESSION["ristid"];
+$campi_validi = true;
 
-<body>
-    <?php
-    $nome = $_GET['nome'];
-    $ingredienti = $_GET['ingredienti'];
-    $prezzo = $_GET['prezzo'];
-    $allergeni = $_GET['allergeni'];
+if ($nome === "") {
+    $campi_validi = false;
+}
+if ($ingredienti === "") {
+    $campi_validi = false;
+}
+if ($prezzo === "") {
+    $campi_validi = false;
+}
+if ($allergeni  === "") {
+    $campi_validi = false;
+}
 
+if ($campi_validi) {
+    define('DB_SERVER', 'localhost');
+    define('DB_USERNAME', 'root');
+    define('DB_PASSWORD', '');
+    define('DB_DATABASE', 'foodelDB');
+    $connection = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 
-    $campi_validi = true;
+    $query1 = "INSERT INTO Prodotto(nome,ingredienti,prezzo,allergeni) VALUES('$nome','$ingredienti',$prezzo,'$allergeni');";
+    $result1 = mysqli_query($connection, $query1);
+    $id_prodotto = mysqli_insert_id($connection);
 
-    if ($nome == "") {
-        $campi_validi = false;
-    }
-    if ($ingredienti == "") {
-        $campi_validi = false;
-    }
-    if ($prezzo == "") {
-        $campi_validi = false;
-    }
-    if ($allergeni  == "") {
-        $campi_validi = false;
-    }
+    if ($result1) {
+        $query2 = "INSERT INTO Vende(id_ristorante, id_prodotto) VALUES('$id_ristorante','$id_prodotto');";
+        $result2 = mysqli_query($connection, $query2);
 
-    if ($campi_validi) {
-        $connection = mysqli_connect("localhost", "root", "", "foodelDB") or die("ERROR: connection error with foodelDB. " . mysqli_connect_error());
-
-        $connection = mysqli_connect("localhost", "root", "", "foodelDB") or die("ERROR: connection error with foodelDB. " . mysqli_connect_error());
-
-        $query = "insert into Prodotto(nome,ingredienti,prezzo,allergeni) values('$nome','$ingredienti', '$prezzo','$allergeni');";
-
-        $myquery = mysqli_query($connection, $query);
-
-        if ($myquery) {
-            print("<h1>Prodotto trovato</h1>");
+        if ($result2) {
+            mysqli_close($connection);
+            header("Location: http://localhost/foodel/client/src/creaprodotto.php?result=1");
         } else {
-            print("<h1>Prodotto non trovato!</h1>");
+            mysqli_close($connection);
+            header("Location: http://localhost/foodel/client/src/creaprodotto.php?result=2");
         }
-
-        mysqli_close($connection);
     } else {
-        print("<h1>Non sono ammessi campi vuoti.</h1>");
+        mysqli_close($connection);
+        header("Location: http://localhost/foodel/client/src/creaprodotto.php?result=2");
     }
-    ?>
-</body>
-
-</html>
+} else {
+    mysqli_close($connection);
+    header("Location: http://localhost/foodel/client/src/creaprodotto.php?result=0");
+}
