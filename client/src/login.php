@@ -16,11 +16,11 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
    if($_SERVER["REQUEST_METHOD"] == "POST") {
       // username and password sent from form 
       
-      $myemail = mysqli_real_escape_string($db,$_POST['email']);
-      $mypassword = mysqli_real_escape_string($db,$_POST['password']); 
+      $myemail = mysqli_real_escape_string($connection,$_POST['email']);
+      $mypassword = mysqli_real_escape_string($connection,$_POST['password']); 
       
       $sql = "SELECT id FROM Cliente WHERE email = '$myemail' and passcode = '$mypassword'";
-      $result = mysqli_query($db,$sql);
+      $result = mysqli_query($connection,$sql);
       $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
       $active = $row['active'];
       
