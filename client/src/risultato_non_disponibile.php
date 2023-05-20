@@ -122,7 +122,7 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
 
     <div class='ristorante-info'>
         <div class='ristorante-item' style="display: flex; justify-content: center;">
-            <p style='font-size:24px; justify-content: center;'><b>Pagina non esistente.</b></p>
+            <p style='font-size:24px; justify-content: center;'><b>Pagina non disponibile o non esistente.</b></p>
         </div>
     </div>
 
