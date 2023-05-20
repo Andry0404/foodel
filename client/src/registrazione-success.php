@@ -5,6 +5,8 @@ session_start();
 if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
     $nome = $_SESSION["nome"];
     $type = $_SESSION["type"];
+} else {
+    $type = "vuoto";
 }
 
 ?>
@@ -18,7 +20,7 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
 </head>
 
 <body>
-<div class="navbar">
+    <div class="navbar">
         <div style="display: flex; flex-direction: row; justify-content: space-between;">
             <div>
                 <div class="maintitle" style="width: fit-content;">

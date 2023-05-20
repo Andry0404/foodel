@@ -9,6 +9,9 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
     $type = "vuoto";
 }
 
+if ($type !== "cliente") {
+    header("Refresh:0; url=http://localhost/foodel/client/src/index.php");
+} 
 ?>
 
 <html>

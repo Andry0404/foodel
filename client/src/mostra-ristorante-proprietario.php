@@ -33,6 +33,8 @@ if ($result_type === 0) {
 if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
     $nome = $_SESSION["nome"];
     $type = $_SESSION["type"];
+} else {
+    $type = "vuoto";
 }
 
 ?>

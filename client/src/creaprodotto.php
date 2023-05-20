@@ -5,6 +5,12 @@ session_start();
 if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
     $nome = $_SESSION["nome"];
     $type = $_SESSION["type"];
+} else {
+    $type = "vuoto";
+}
+
+if ($type !== "proprietario") {
+    header("Refresh:0; url=http://localhost/foodel/client/src/index.php");
 }
 
 if (isset($_GET["result"])) {
