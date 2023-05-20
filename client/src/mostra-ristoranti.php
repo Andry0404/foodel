@@ -6,9 +6,6 @@ define('DB_PASSWORD', '');
 define('DB_DATABASE', 'foodelDB');
 $connection = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 
-session_start();
-
-$id_ristorante = $_SESSION["ristid"];
 
 $query = "SELECT * FROM Ristorante";
 
@@ -22,11 +19,9 @@ if ($n === 0) {
     $result_type = 1;
 }
 
-
 if ($result_type === 0) {
-    header("Location: http://localhost/foodel/client/src/risultato_non_disponibile.php");
+    header("Location: http://localhost/foodel/client/src/risultato_non_disponibile.php?error=404");
 }
-
 
 if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
     $nome = $_SESSION["nome"];
@@ -133,35 +128,6 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
     }
 
     ?>
-
-    <!-- <div class='ristorante-info'>
-        <div class='ristorante-item'>
-            <p style='font-size:24px'><b><?php echo $ristorante["nome"] ?></b></p>
-            <p>
-                <span style="font-size: 16px" class="material-symbols-outlined">
-                    schedule
-                </span>
-                Orario apertura: <?php echo $ristorante["orario_apertura"] ?>
-            </p>
-            <p>
-                <span style="font-size: 16px" class="material-symbols-outlined">
-                    schedule
-                </span>
-                Orario chiusura: <?php echo $ristorante["orario_chiusura"] ?>
-            </p>
-            <p><span style="font-size: 16px" class="material-symbols-outlined">
-                    location_on
-                </span>
-                Indirizzo: <?php echo $ristorante["indirizzo"] ?></p>
-            <p><span style="font-size: 16px" class="material-symbols-outlined">
-                    call
-                </span>
-                Numero di telefono: <?php echo $ristorante["num_telefono"] ?></p>
-
-            <div style="margin-top: 8px; margin-bottom: 8px;" onclick="location.href='signup-cliente.php'" class='subscribe-button'>Scopri il menu</div>
-            <div style="margin-top: 8px; margin-bottom: 8px;" onclick="location.href='signup-cliente.php'" class='subscribe-button'>Ordina ora</div>
-        </div>
-    </div> -->
 
     <footer><small>
             <div class="material-symbols-outlined" style="font-size: 12px;">

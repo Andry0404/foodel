@@ -1,17 +1,14 @@
 <?php
 session_start();
-include("../../server/src/getristorante.php");
-
-if ($_SESSION["type"] !== "cliente") {
-    header("Location: http://localhost/foodel/client/src/risultato_non_disponibile.php");
-}
-
 
 if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
     $nome = $_SESSION["nome"];
     $type = $_SESSION["type"];
+    if ($type !== "cliente") {
+        header("Location: http://localhost/foodel/client/src/risultato_non_disponibile.php?error=1");
+    }
 } else {
-    header("Location: http://localhost/foodel/client/src/risultato_non_disponibile.php");
+    header("Location: http://localhost/foodel/client/src/risultato_non_disponibile.php?error=2");
 }
 
 ?>

@@ -9,6 +9,14 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
     $type = "vuoto";
 }
 
+$error = $_GET["error"];
+
+$msg = "Pagina non disponibile.";
+
+if($error === '404') {
+    $msg = "Non ci sono ristoranti disponibili.";
+}
+
 ?>
 
 <html>
@@ -20,7 +28,7 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
 </head>
 
 <body>
-<div class="navbar">
+    <div class="navbar">
         <div style="display: flex; flex-direction: row; justify-content: space-between;">
             <div>
                 <div class="maintitle" style="width: fit-content;">
@@ -67,7 +75,7 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
 
     <div class='ristorante-info'>
         <div class='ristorante-item' style="display: flex; justify-content: center;">
-            <p style='font-size:24px; justify-content: center;'><b>Pagina non disponibile o non esistente.</b></p>
+            <p style='font-size:24px; justify-content: center;'><b><?php echo $msg ?></b></p>
         </div>
     </div>
 
