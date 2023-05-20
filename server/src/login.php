@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 if (mysqli_num_rows($ristoranteIDResult) === 0) {
                     session_destroy();
                     mysqli_close($connection);
-                    header("Location: http://localhost/foodel/client/src/risultato-non-disponibile.php?error=66");
+                    header("Location: http://localhost/foodel/client/src/risultato_non_disponibile.php");
                     die();
                 }
                 $ristoranteID = mysqli_fetch_array($ristoranteIDResult)["id_ristorante"];
@@ -72,10 +72,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             header("Location: http://localhost/foodel/client/src/index.php");
         } else {
             mysqli_close($connection);
-            header("Location: http://localhost/foodel/client/src/risultato-non-disponibile.php?error=77");
+            header("Location: http://localhost/foodel/client/src/risultato_non_disponibile.php?error=77");
         }
     } else {
         mysqli_close($connection);
-        header("Location: http://localhost/foodel/client/src/risultato-non-disponibile.php?error=88");
+        header("Location: http://localhost/foodel/client/src/risultato_non_disponibile.php?error=88");
     }
 }
