@@ -15,6 +15,8 @@ $msg = "Pagina non disponibile.";
 
 if($error === '404') {
     $msg = "Non ci sono ristoranti disponibili.";
+} else if($error === '88') {
+    $msg = "Utente non esistente o credenziali errate.";
 }
 
 ?>
