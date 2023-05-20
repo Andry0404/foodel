@@ -45,7 +45,8 @@ create table Prodotto(
   prezzo float(6, 3) not null,
   nome varchar(255) not null,
   allergeni varchar(255) not null,
-  ingredienti varchar(255) not null
+  ingredienti varchar(255) not null,
+  categoria varchar(255) not null check(categoria="antipasto" or categoria="primo" or categoria="secondo" or categoria="dessert")
 );
 
 drop table if exists Ordina_da;

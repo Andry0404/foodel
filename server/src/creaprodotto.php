@@ -5,7 +5,10 @@ $nome = $_GET['nome'];
 $ingredienti = $_GET['ingredienti'];
 $prezzo = $_GET['prezzo'];
 $allergeni = $_GET['allergeni'];
+$categoria = $_GET["categoria"];
+
 $id_ristorante = $_SESSION["ristid"];
+
 $campi_validi = true;
 
 if ($nome === "") {
@@ -28,7 +31,7 @@ if ($campi_validi) {
     define('DB_DATABASE', 'foodelDB');
     $connection = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 
-    $query1 = "INSERT INTO Prodotto(nome,ingredienti,prezzo,allergeni) VALUES('$nome','$ingredienti',$prezzo,'$allergeni');";
+    $query1 = "INSERT INTO Prodotto(nome,ingredienti,prezzo,allergeni, categoria) VALUES('$nome','$ingredienti',$prezzo,'$allergeni','$categoria');";
     $result1 = mysqli_query($connection, $query1);
     $id_prodotto = mysqli_insert_id($connection);
 
@@ -41,7 +44,7 @@ if ($campi_validi) {
             header("Location: http://localhost/foodel/client/src/creaprodotto.php?result=1");
         } else {
             mysqli_close($connection);
-            header("Location: http://localhost/foodel/client/src/creaprodotto.php?result=2");
+            header("Location: http://localhost/foodel/client/src/creaprodotto.php?result=$query2");
         }
     } else {
         mysqli_close($connection);

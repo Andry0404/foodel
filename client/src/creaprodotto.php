@@ -43,7 +43,7 @@ if (isset($_GET["result"])) {
 </head>
 
 <body>
-<div class="navbar">
+    <div class="navbar">
         <div style="display: flex; flex-direction: row; justify-content: space-between;">
             <div>
                 <div class="maintitle" style="width: fit-content;">
@@ -108,6 +108,37 @@ if (isset($_GET["result"])) {
                     <tr>
                         <td><label for="ingredienti">Ingredienti:</label></td>
                         <td><input type="text" id="ingredienti" name="ingredienti"><br><br></td>
+                    </tr>
+
+                    <tr>
+                        <td><label for="ingredienti">Categoria:</label></td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="radio" id="antipasto" name="categoria" value="antipasto">
+                            <label for="antipasto">Antipasto</label><br>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <input type="radio" id="primo" name="categoria" value="primo">
+                            <label for="primo">Primo</label><br>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <input type="radio" id="secondo" name="categoria" value="secondo">
+                            <label for="secondo">Secondo</label>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <input type="radio" id="dessert" name="categoria" value="dessert">
+                            <label for="dessert">Dessert</label>
+                        </td>
                     </tr>
                 </table>
 
