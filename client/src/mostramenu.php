@@ -1,6 +1,47 @@
 <?php
 
+define('DB_SERVER', 'localhost');
+define('DB_USERNAME', 'root');
+define('DB_PASSWORD', '');
+define('DB_DATABASE', 'foodelDB');
+$connection = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
+
 session_start();
+
+$id_ristorante = $_SESSION["ristid"];
+
+$antipasti = array();
+$primi = array();
+$secondi = array();
+$dessert = array();
+
+$query_get_ids_prodotti = "SELECT * FROM Vende WHERE id_ristorante=$id_ristorante;";
+$ids_prodotti = mysqli_query($connection, $query_get_ids_prodotti);
+$n = mysqli_num_rows($ids_prodotti);
+if ($n === 0) {
+    $result_type = 0;
+    header("Location: http://localhost/foodel/client/src/risultato_non_disponibile.php?error=403");
+} else {
+    $result_type = 1;
+}
+
+for ($i = 0; $i < $n; $i++) {
+    $id_prodotto = mysqli_fetch_array($ids_prodotti);
+    $query_get_prodotti = "SELECT * FROM Prodotto WHERE id_prodotto=" . $id_prodotto["id_prodotto"] . ";";
+    $prodotti = mysqli_query($connection, $query_get_prodotti);
+    $m = mysqli_num_rows($prodotti);
+    if ($m === 0) {
+        $result_type = 0;
+        header("Location: http://localhost/foodel/client/src/risultato_non_disponibile.php?error=403");
+    } else {
+        $result_type = 1;
+        $prodotto = mysqli_fetch_array($prodotti);
+        if ($prodotto["categoria"] === "antipasto") array_push($antipasti, $prodotto);
+        else if ($prodotto["categoria"] === "primo") array_push($primi, $prodotto);
+        else if ($prodotto["categoria"] === "secondo") array_push($secondi, $prodotto);
+        else if ($prodotto["categoria"] === "dessert") array_push($dessert, $prodotto);
+    }
+}
 
 if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
     $nome = $_SESSION["nome"];
@@ -11,22 +52,19 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <link rel="stylesheet" type="text/css" href="../../style/style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
 <body>
-<div class="navbar">
+    <div class="navbar">
         <div style="display: flex; flex-direction: row; justify-content: space-between;">
             <div>
                 <div class="maintitle" style="width: fit-content;">
@@ -71,50 +109,26 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
         ?>
     </div>
 
-    <div class="info-ristorante">
-        <div class="ristorante-barra-nome">
-            <h1 id="nome-ristorante" class="nome-ristorante">Pizzeria da Ivan</h1>
-        </div>
-        <div class="ristorante-barra-indirizzo" style="display: flex; justify-content: space-evenly; font-size: 12px;">
-            <h3 id="indirizzo-ristorante" class="indirizzo-ristorante">Via Dei Monti, 42</h3>
-            <h4 id="recensione" class="recensione">Recensione: ***</h4>
-        </div>
-    </div>
-
-    <div class="generale-menu">
-        <div class="categoria-menu">
-            <h3>Antipasto</h3>
-            <p>ANTIPASTO 1</p>
-            <p>ANTIPASTO 2</p>
-            <p>ANTIPASTO 3</p>
-            <p>ANTIPASTO 4</p>
-            <p>ANTIPASTO 5</p>
-        </div>
-        <div class="categoria-menu">
-            <h3>Primo</h3>
-            <p>PRIMO 1</p>
-            <p>PRIMO 2</p>
-            <p>PRIMO 3</p>
-            <p>PRIMO 4</p>
-            <p>PRIMO 5</p>
-        </div>
-        <div class="categoria-menu">
-            <h3>Secondo</h3>
-            <p>SECONDO 1</p>
-            <p>SECONDO 2</p>
-            <p>SECONDO 3</p>
-            <p>SECONDO 4</p>
-            <p>SECONDO 5</p>
-        </div>
-        <div class="categoria-menu">
-            <h3>Dessert</h3>
-            <p>DESSERT 1</p>
-            <p>DESSERT 2</p>
-            <p>DESSERT 3</p>
-            <p>DESSERT 4</p>
-            <p>DESSERT 5</p>
-        </div>
-    </div>
+    <?php
+    for ($i = 0; $i < count($antipasti); $i++) {
+        print("<p>" . $antipasti[$i]["nome"] . "</p>");
+    }
+    ?>
+    <?php
+    for ($i = 0; $i < count($primi); $i++) {
+        print("<p>" . $primi[$i]["nome"] . "</p>");
+    }
+    ?>
+    <?php
+    for ($i = 0; $i < count($secondi); $i++) {
+        print("<p>" . $secondi[$i]["nome"] . "</p>");
+    }
+    ?>
+    <?php
+    for ($i = 0; $i < count($dessert); $i++) {
+        print("<p>" . $dessert[$i]["nome"] . "</p>");
+    }
+    ?>
 
     <footer><small>
             <div class="material-symbols-outlined" style="font-size: 12px;">
