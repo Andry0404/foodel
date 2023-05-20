@@ -1,11 +1,5 @@
 <?php
 
-include("../../server/src/getristorante.php");
-
-if ($result_type === 0) {
-    header("Location: http://localhost/foodel/client/src/risultato_non_disponibile.php");
-}
-
 session_start();
 
 if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
@@ -20,9 +14,6 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
 <head>
     <link rel="stylesheet" type="text/css" href="../../style/style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
@@ -130,31 +121,8 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
     </div>
 
     <div class='ristorante-info'>
-        <div class='ristorante-item'>
-            <p style='font-size:24px'><b><?php echo $ristorante["nome"] ?></b></p>
-            <p>
-                <span style="font-size: 16px" class="material-symbols-outlined">
-                    schedule
-                </span>
-                Orario apertura: <?php echo $ristorante["orario_apertura"] ?>
-            </p>
-            <p>
-                <span style="font-size: 16px" class="material-symbols-outlined">
-                    schedule
-                </span>
-                Orario chiusura: <?php echo $ristorante["orario_chiusura"] ?>
-            </p>
-            <p><span style="font-size: 16px" class="material-symbols-outlined">
-                    location_on
-                </span>
-                Indirizzo: <?php echo $ristorante["indirizzo"] ?></p>
-            <p><span style="font-size: 16px" class="material-symbols-outlined">
-                    call
-                </span>
-                Numero di telefono: <?php echo $ristorante["num_telefono"] ?></p>
-
-            <div style="margin-top: 8px; margin-bottom: 8px;" onclick="location.href='signup-cliente.php'" class='subscribe-button'>Scopri il menu</div>
-            <div style="margin-top: 8px; margin-bottom: 8px;" onclick="location.href='signup-cliente.php'" class='subscribe-button'>Ordina ora</div>
+        <div class='ristorante-item' style="display: flex; justify-content: center;">
+            <p style='font-size:24px; justify-content: center;'><b>Pagina non esistente.</b></p>
         </div>
     </div>
 
