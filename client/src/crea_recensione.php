@@ -18,14 +18,18 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
 <head>
     <link rel="stylesheet" type="text/css" href="../../style/style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
 <body>
-<div class="navbar">
+    <div class="navbar">
         <div style="display: flex; flex-direction: row; justify-content: space-between;">
             <div>
                 <div class="maintitle" style="width: fit-content;">
@@ -36,7 +40,8 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
                         <b>foodel</b>
                     </a>
                 </div>
-                <div style='font-size:14px; width: 100%;'>Tu pensi al <b><i>food</i></b>, noi pensiamo al <b><i>delivery</i></b>.</div>
+                <div style='font-size:14px; width: 100%;'>Tu pensi al <b><i>food</i></b>, noi pensiamo al
+                    <b><i>delivery</i></b>.</div>
             </div>
             <div style="margin: 25px 60px 0px 0px;">
                 <?php
@@ -71,9 +76,48 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
     </div>
 
     <!-- da qui -->
+    <form action='Recensione' method='POST'>
+        <table>
+            <tr>
+                <td>
+                    <input type="radio" id="uno" name="valutazione" value="uno">
+                    <label for="uno">uno</label>
+                </td>
+            </tr>
 
+            <tr>
+                <td>
+                    <input type="radio" id="due" name="valutazione" value="due">
+                    <label for="due">due</label>
+                </td>
+            </tr>
 
-    
+            <tr>
+                <td>
+                    <input type="radio" id="tre" name="valutazione" value="tre">
+                    <label for="tre">tre</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="radio" id="quattro" name="valutazione" value="quattro">
+                    <label for="quattro">quattro</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <input type="radio" id="cinque" name="valutazione" value="cinque">
+                    <label for="cinque">cinque</label>
+                </td>
+            </tr>
+
+        </table>
+
+        <input type="text" id="recensione_testo" />
+    </form>
+
     <!-- fino a qui -->
 
     <footer><small>
