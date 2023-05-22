@@ -10,6 +10,10 @@ session_start();
 
 $id_ristorante = $_SESSION["ristid"];
 
+$getRistoranteQuery = "SELECT * FROM Ristorante WHERE id_ristorante=$id_ristorante";
+$ristoranteResult = mysqli_query($connection, $getRistoranteQuery);
+$ristorante = mysqli_fetch_array($ristoranteResult);
+
 $antipasti = array();
 $primi = array();
 $secondi = array();
@@ -31,10 +35,8 @@ for ($i = 0; $i < $n; $i++) {
     $prodotti = mysqli_query($connection, $query_get_prodotti);
     $m = mysqli_num_rows($prodotti);
     if ($m === 0) {
-        $result_type = 0;
         header("Location: http://localhost/foodel/client/src/risultato_non_disponibile.php?error=403");
     } else {
-        $result_type = 1;
         $prodotto = mysqli_fetch_array($prodotti);
         if ($prodotto["categoria"] === "antipasto") array_push($antipasti, $prodotto);
         else if ($prodotto["categoria"] === "primo") array_push($primi, $prodotto);
@@ -109,26 +111,67 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
         ?>
     </div>
 
-    <?php
-    for ($i = 0; $i < count($antipasti); $i++) {
-        print("<p>" . $antipasti[$i]["nome"] . "</p>");
-    }
-    ?>
-    <?php
-    for ($i = 0; $i < count($primi); $i++) {
-        print("<p>" . $primi[$i]["nome"] . "</p>");
-    }
-    ?>
-    <?php
-    for ($i = 0; $i < count($secondi); $i++) {
-        print("<p>" . $secondi[$i]["nome"] . "</p>");
-    }
-    ?>
-    <?php
-    for ($i = 0; $i < count($dessert); $i++) {
-        print("<p>" . $dessert[$i]["nome"] . "</p>");
-    }
-    ?>
+    <div style="display: flex; justify-content: center; margin-bottom: 0px;">
+        <h1 style="margin-bottom: 0px">Menu</h1>
+    </div>
+
+    <div style="display: flex; justify-content: center; margin-top: 0px;">
+        <h4 style="margin-top: 0px;"><?php print($ristorante["nome"]) ?></h4>
+    </div>
+
+    <div class="ristorante-info">
+        <div class="ristorante-item">
+            <div>
+                <h2>Antipasti</h2>
+                <?php
+                if (count($antipasti) === 0) {
+                    print("<p>Non ci sono antipasti</p>");
+                } else {
+                    for ($i = 0; $i < count($antipasti); $i++) {
+                        print("<p>" . $antipasti[$i]["nome"] . "</p>");
+                    }
+                }
+                ?>
+            </div>
+
+            <div>
+                <h2>Primi</h2>
+                <?php
+                if (count($primi) === 0) {
+                    print("<p>Non ci sono antipasti</p>");
+                } else {
+                    for ($i = 0; $i < count($primi); $i++) {
+                        print("<p>" . $primi[$i]["nome"] . "</p>");
+                    }
+                }
+                ?>
+            </div>
+            <div>
+                <h2>Secondi</h2>
+                <?php
+                if (count($secondi) === 0) {
+                    print("<p>Non ci sono antipasti</p>");
+                } else {
+                    for ($i = 0; $i < count($secondi); $i++) {
+                        print("<p>" . $secondi[$i]["nome"] . "</p>");
+                    }
+                }
+                ?>
+            </div>
+            <div>
+                <h2>Dessert</h2>
+                <?php
+                if (count($dessert) === 0) {
+                    print("<p>Non ci sono antipasti</p>");
+                } else {
+                    for ($i = 0; $i < count($dessert); $i++) {
+                        print("<p>" . $dessert[$i]["nome"] . "</p>");
+                    }
+                }
+                ?>
+            </div>
+        </div>
+    </div>
 
     <footer><small>
             <div class="material-symbols-outlined" style="font-size: 12px;">
