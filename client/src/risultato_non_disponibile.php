@@ -19,6 +19,8 @@ if($error === '404') {
     $msg = "Utente non esistente o credenziali errate.";
 } else if($error === '403') {
     $msg = "Menu non disponibile.";
+} else if($error === '408') {
+    $msg = "Non ci sono ordini nello storico.";
 }
 
 ?>

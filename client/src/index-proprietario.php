@@ -92,7 +92,7 @@ if ($type !== "proprietario") {
             <p>
                 Visualizza tutti gli ordini attivi.
             </p>
-            <div onclick="location.href='signup-cliente.php'" class='subscribe-button'>Vedi ordini</div>
+            <div onclick="location.href='mostra-ordini.php'" class='subscribe-button'>Vedi ordini</div>
         </div>
         <div class='proprietario-item-review'>
             <p style='font-size:24px'><b>Visualizza recensioni</b></p>

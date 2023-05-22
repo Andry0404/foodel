@@ -6,21 +6,26 @@ define('DB_PASSWORD', '');
 define('DB_DATABASE', 'foodelDB');
 $connection = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
 
+session_start();
 
-$query = "SELECT * FROM Ristorante";
+$id_ristorante = $_SESSION["ristid"];
 
-$ristoranti = mysqli_query($connection, $query);
+$getOrdiniQuery = "SELECT * FROM Ordina_da WHERE id_ristorante=$id_ristorante";
+$getOrdiniResult = mysqli_query($connection, $getOrdiniQuery);
 
-$n = mysqli_num_rows($ristoranti);
+$ordini = array();
+$n = mysqli_num_rows($getOrdiniResult);
+$ordiniFields = mysqli_fetch_fields($getOrdiniResult);
 
 if ($n === 0) {
     $result_type = 0;
+    header("Location: http://localhost/foodel/client/src/risultato_non_disponibile.php?error=408");
 } else {
     $result_type = 1;
 }
 
-if ($result_type === 0) {
-    header("Location: http://localhost/foodel/client/src/risultato_non_disponibile.php?error=404");
+for ($i = 0; $i < $n; $i++) {
+    array_push($ordini, mysqli_fetch_array($ids_prodotti));
 }
 
 if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
@@ -89,46 +94,42 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
         ?>
     </div>
 
-    <h1 style="display: flex; justify-content:center; font-weight: 1000;"><b>Ecco i nostri ristoranti</b></h1>
+    <div style="display: flex; justify-content: center; margin-bottom: 0px;">
+        <h1 style="margin-bottom: 0px">Menu</h1>
+    </div>
 
-    <script src="../../scripts/bindRistoranteID.js"></script>
+    <div style="display: flex; justify-content: center; margin-top: 0px;">
+        <h4 style="margin-top: 0px;"><?php print($ristorante["nome"]) ?></h4>
+    </div>
 
-    <?php
-    for ($i = 0; $i < $n; $i++) {
-        $ristorante = mysqli_fetch_array($ristoranti);
-        print('
-        <div class="ristorante-info">
+    <div class="ristorante-info">
         <div class="ristorante-item">
-            <p style="font-size:24px"><b> &nbsp;' . $ristorante["nome"] . '</b></p>
-            <p>
-                <span style="font-size: 16px" class="material-symbols-outlined">
-                    schedule
-                </span>
-                Orario apertura: &nbsp;' . $ristorante["orario_apertura"] . '
-            </p>
-            <p>
-                <span style="font-size: 16px" class="material-symbols-outlined">
-                    schedule
-                </span>
-                Orario chiusura: &nbsp;' . $ristorante["orario_chiusura"] . '
-            </p>
-            <p><span style="font-size: 16px" class="material-symbols-outlined">
-                    location_on
-                </span>
-                Indirizzo: &nbsp;' . $ristorante["indirizzo"] . '</p>
-            <p><span style="font-size: 16px" class="material-symbols-outlined">
-                    call
-                </span>
-                Numero di telefono: &nbsp;' . $ristorante["num_telefono"] . '</p>
-
-            <div style="margin-top: 8px; margin-bottom: 8px;" onclick="location.href="mostra-ristoranti.php"" id='.${$ristorante["id_ristorante"]}.' class="subscribe-button scopri-il-menu">Scopri il menu</div>
-            <div style="margin-top: 8px; margin-bottom: 8px;" onclick="location.href="signup-cliente.php"" class="subscribe-button">Ordina ora</div>
+            <h2>Storico ordini</h2>
+            <table>
+                <tr>
+                    <?php
+                    for ($i=0; $i < count($ordiniFields); $i++) { 
+                        print("<th>".$ordiniFields[$i]."</th>");
+                    }
+                    ?>
+                </tr>
+                <?php
+                for ($i=0; $i < $n; $i++) { 
+                    print("<tr>");
+                    print("<td>");
+                    print($ordini[$i]["importo"]);
+                    print("</td>");
+                    print("</tr>");
+                }
+                ?>
+            </table>
+            <?php
+            for ($i = 0; $i < count($ordini); $i++) {
+                print("<p>" . $ordini[$i]["nome"] . "</p>");
+            }
+            ?>
         </div>
     </div>
-        ');
-    }
-
-    ?>
 
     <footer><small>
             <div class="material-symbols-outlined" style="font-size: 12px;">
