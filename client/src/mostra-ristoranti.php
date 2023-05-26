@@ -5,7 +5,7 @@ define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
 define('DB_DATABASE', 'foodelDB');
 $connection = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
-
+session_start();
 
 $query = "SELECT * FROM Ristorante";
 
@@ -121,7 +121,6 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
                 </span>
                 Numero di telefono: &nbsp;' . $ristorante["num_telefono"] . '</p>
 
-            <div style="margin-top: 8px; margin-bottom: 8px;" onclick="location.href="mostra-ristoranti.php"" id='.${$ristorante["id_ristorante"]}.' class="subscribe-button scopri-il-menu">Scopri il menu</div>
             <div style="margin-top: 8px; margin-bottom: 8px;" onclick="location.href="signup-cliente.php"" class="subscribe-button">Ordina ora</div>
         </div>
     </div>
