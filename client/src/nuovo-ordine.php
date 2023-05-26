@@ -1,14 +1,55 @@
 <?php
+
+define('DB_SERVER', 'localhost');
+define('DB_USERNAME', 'root');
+define('DB_PASSWORD', '');
+define('DB_DATABASE', 'foodelDB');
+$connection = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
+
 session_start();
+
+$id_ristorante = $_GET["ristid"];
+
+$getRistoranteQuery = "SELECT * FROM Ristorante WHERE id_ristorante=$id_ristorante";
+$ristoranteResult = mysqli_query($connection, $getRistoranteQuery);
+$ristorante = mysqli_fetch_array($ristoranteResult);
+
+$antipasti = array();
+$primi = array();
+$secondi = array();
+$dessert = array();
+
+$query_get_ids_prodotti = "SELECT * FROM Vende WHERE id_ristorante=$id_ristorante;";
+$ids_prodotti = mysqli_query($connection, $query_get_ids_prodotti);
+$n = mysqli_num_rows($ids_prodotti);
+if ($n === 0) {
+    $result_type = 0;
+    header("Location: http://localhost/foodel/client/src/risultato_non_disponibile.php?error=403");
+} else {
+    $result_type = 1;
+}
+
+for ($i = 0; $i < $n; $i++) {
+    $id_prodotto = mysqli_fetch_array($ids_prodotti);
+    $query_get_prodotti = "SELECT * FROM Prodotto WHERE id_prodotto=" . $id_prodotto["id_prodotto"] . ";";
+    $prodotti = mysqli_query($connection, $query_get_prodotti);
+    $m = mysqli_num_rows($prodotti);
+    if ($m === 0) {
+        header("Location: http://localhost/foodel/client/src/risultato_non_disponibile.php?error=403");
+    } else {
+        $prodotto = mysqli_fetch_array($prodotti);
+        if ($prodotto["categoria"] === "antipasto") array_push($antipasti, $prodotto);
+        else if ($prodotto["categoria"] === "primo") array_push($primi, $prodotto);
+        else if ($prodotto["categoria"] === "secondo") array_push($secondi, $prodotto);
+        else if ($prodotto["categoria"] === "dessert") array_push($dessert, $prodotto);
+    }
+}
 
 if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
     $nome = $_SESSION["nome"];
     $type = $_SESSION["type"];
-    if ($type !== "cliente") {
-        header("Location: http://localhost/foodel/client/src/risultato_non_disponibile.php?error=1");
-    }
 } else {
-    header("Location: http://localhost/foodel/client/src/risultato_non_disponibile.php?error=2");
+    $type = "vuoto";
 }
 
 ?>
@@ -25,7 +66,7 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
 </head>
 
 <body>
-<div class="navbar">
+    <div class="navbar">
         <div style="display: flex; flex-direction: row; justify-content: space-between;">
             <div>
                 <div class="maintitle" style="width: fit-content;">
@@ -70,32 +111,82 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
         ?>
     </div>
 
-    <div class='ristorante-info'>
-        <div class='ristorante-item'>
-            <p style='font-size:24px'><b><?php echo $ristorante["nome"] ?></b></p>
-            <p>
-                <span style="font-size: 16px" class="material-symbols-outlined">
-                    schedule
-                </span>
-                Orario apertura: <?php echo $ristorante["orario_apertura"] ?>
-            </p>
-            <p>
-                <span style="font-size: 16px" class="material-symbols-outlined">
-                    schedule
-                </span>
-                Orario chiusura: <?php echo $ristorante["orario_chiusura"] ?>
-            </p>
-            <p><span style="font-size: 16px" class="material-symbols-outlined">
-                    location_on
-                </span>
-                Indirizzo: <?php echo $ristorante["indirizzo"] ?></p>
-            <p><span style="font-size: 16px" class="material-symbols-outlined">
-                    call
-                </span>
-                Numero di telefono: <?php echo $ristorante["num_telefono"] ?></p>
+    <div style="display: flex; justify-content: center; margin-bottom: 0px;">
+        <h1 style="margin-bottom: 0px">Menu</h1>
+    </div>
 
-            <div style="margin-top: 8px; margin-bottom: 8px;" onclick="location.href='signup-cliente.php'" class='subscribe-button'>Scopri il menu</div>
-            <div style="margin-top: 8px; margin-bottom: 8px;" onclick="location.href='signup-cliente.php'" class='subscribe-button'>Ordina ora</div>
+    <div style="display: flex; justify-content: center; margin-top: 0px;">
+        <h4 style="margin-top: 0px;"><?php print($ristorante["nome"]) ?></h4>
+    </div>
+
+    <div class="ristorante-info">
+        <div class="ristorante-item">
+            <form action="../../server/src/nuovo-ordine.php" method="post">
+                <input hidden type="number" value=<?php print($_SESSION["userID"]) ?> id="id_cliente" name="id_cliente" />
+                <input hidden type="number" value=<?php print($id_ristorante) ?> id="id_ristorante" name="id_ristorante" />
+                <div>
+                    <h2 style='margin-bottom: 2px'>Antipasti</h2>
+                    <?php
+                    if (count($antipasti) === 0) {
+                        print("<p>Non ci sono antipasti</p>");
+                    } else {
+                        for ($i = 0; $i < count($antipasti); $i++) {
+                            print('<div style="display:flex; justify-content: left; margin: 2px 0px 2px 0px">');
+                            print("<p class='fooditem'>" . $antipasti[$i]["nome"] . "</p>");
+                            print('<input id=' . $antipasti[$i]['id_prodotto'] . ' name=' . $antipasti[$i]['id_prodotto'] . ' type="number" value="0" style="margin-left: 15px" />');
+                            print('</div>');
+                        }
+                    }
+                    ?>
+                </div>
+
+                <div>
+                    <h2 style='margin-bottom: 2px'>Primi</h2>
+                    <?php
+                    if (count($primi) === 0) {
+                        print("<p>Non ci sono antipasti</p>");
+                    } else {
+                        for ($i = 0; $i < count($primi); $i++) {
+                            print('<div style="display:flex; justify-content: left; margin: 2px 0px 2px 0px">');
+                            print("<p class='fooditem'>" . $primi[$i]["nome"] . "</p>");
+                            print('<input id=' . $primi[$i]['id_prodotto'] . ' name=' . $primi[$i]['id_prodotto'] . ' type="number" value="0" style="margin-left: 15px" />');
+                            print('</div>');
+                        }
+                    }
+                    ?>
+                </div>
+                <div>
+                    <h2 style='margin-bottom: 2px'>Secondi</h2>
+                    <?php
+                    if (count($secondi) === 0) {
+                        print("<p>Non ci sono antipasti</p>");
+                    } else {
+                        for ($i = 0; $i < count($secondi); $i++) {
+                            print('<div style="display:flex; justify-content: left; margin: 2px 0px 2px 0px">');
+                            print("<p class='fooditem'>" . $secondi[$i]["nome"] . "</p>");
+                            print('<input id=' . $secondi[$i]['id_prodotto'] . ' name=' . $secondi[$i]['id_prodotto'] . ' type="number" value="0" style="margin-left: 15px" />');
+                            print('</div>');
+                        }
+                    }
+                    ?>
+                </div>
+                <div style="margin-bottom: 10px;">
+                    <h2 style='margin-bottom: 2px'>Dessert</h2>
+                    <?php
+                    if (count($dessert) === 0) {
+                        print("<p>Non ci sono antipasti</p>");
+                    } else {
+                        for ($i = 0; $i < count($dessert); $i++) {
+                            print('<div style="display:flex; justify-content: left; margin: 2px 0px 2px 0px">');
+                            print("<p class='fooditem'>" . $dessert[$i]["nome"] . "</p>");
+                            print('<input id=' . $dessert[$i]['id_prodotto'] . ' name=' . $dessert[$i]['id_prodotto'] . ' type="number" value="0" style="margin-left: 15px" />');
+                            print('</div>');
+                        }
+                    }
+                    ?>
+                </div>
+                <button style="margin-top: 8px; margin-bottom: 8px; border-style: none; font-size: 16;" type="submit" class="subscribe-button"><b>Effettua ordine</b></button>
+            </form>
         </div>
     </div>
 
@@ -106,6 +197,8 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
             <b>Foodel - Copyright © 2023 Andrea De Giorgi. All Rights Reserved.</b>
         </small>
     </footer>
+
+    <script src="../../scripts/bindRistoranteID.js"></script>
 </body>
 
 </html>

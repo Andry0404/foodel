@@ -1,11 +1,11 @@
-document.getElementsByClassName("scopri-il-menu").array.forEach(button => {
-    if(button instanceof HTMLButtonElement) {
-        button.onclick = function () {
-            /**
-             * bind location.href with button.id for providing GET params
-             */
-            location.href
-            button.id
-        }
+const buttons = document.getElementsByClassName("subscribe-button orderButton")
+
+for (let index = 0; index < buttons.length; index++) {
+    const button = buttons[index];
+
+    button.onclick = function () {
+        const id_ristorante = button.id;
+        location.href = `./nuovo-ordine.php?ristid=${id_ristorante}`;
+        return true;
     }
-});
+}

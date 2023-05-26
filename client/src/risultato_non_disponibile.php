@@ -21,6 +21,10 @@ if($error === '404') {
     $msg = "Menu non disponibile.";
 } else if($error === '408') {
     $msg = "Non ci sono ordini nello storico.";
+} else if($error === '501') {
+    $msg = "Ordinazione fallita.";
+} else if($error === '502') {
+    $msg = "Utilizzare esclusivamente numeri per esprimere la quantità.";
 }
 
 ?>

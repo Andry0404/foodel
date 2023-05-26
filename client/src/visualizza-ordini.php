@@ -5,22 +5,16 @@ define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
 define('DB_DATABASE', 'foodelDB');
 $connection = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
+
 session_start();
 
-$query = "SELECT * FROM Ristorante";
+$queryGetOrdini = "SELECT * FROM Ordina_da WHERE id_cliente=" . $_SESSION['userID'] . " ORDER BY data_ordine;";
+$queryGetOrdiniResult = mysqli_query($connection, $queryGetOrdini);
+$ordini = array();
+$n = mysqli_num_rows($queryGetOrdiniResult);
 
-$ristoranti = mysqli_query($connection, $query);
-
-$n = mysqli_num_rows($ristoranti);
-
-if ($n === 0) {
-    $result_type = 0;
-} else {
-    $result_type = 1;
-}
-
-if ($result_type === 0) {
-    header("Location: http://localhost/foodel/client/src/risultato_non_disponibile.php?error=404");
+for ($i = 0; $i < $n; $i++) {
+    array_push($ordini, mysqli_fetch_array($queryGetOrdiniResult));
 }
 
 if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
@@ -89,44 +83,41 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
         ?>
     </div>
 
-    <h1 style="display: flex; justify-content:center; font-weight: 1000;"><b>Ecco i nostri ristoranti</b></h1>
+    <div class="ristorante-info">
+        <div class="ristorante-item" style="padding-bottom: 20px">
+            <h2 style='margin-bottom: 2px'>Ordini effettuati</h2>
+            <?php
+            if (count($ordini) === 0) {
+                print("<p>Non ci sono ordini</p>");
+            } else {
+                print("<table border>");
+                print("<thead><tr>");
+                print("<th>Data ordine</th>");
+                print("<th>Nome ristorante</th>");
+                print("<th>Nome prodotto</th>");
+                print("<th>Quantità</th>");
+                print("</tr></thead>");
+                print("<tbody>");
+                for ($i = 0; $i < count($ordini); $i++) {
+                    $queryProdotto = "SELECT * FROM Prodotto WHERE id_prodotto=" . $ordini[$i]["id_prodotto"] . ";";
+                    $queryProdottoResult = mysqli_query($connection, $queryProdotto);
+                    $prodotto = mysqli_fetch_array($queryProdottoResult);
 
-
-    <?php
-    for ($i = 0; $i < $n; $i++) {
-        $ristorante = mysqli_fetch_array($ristoranti);
-        print('
-        <div class="ristorante-info">
-        <div class="ristorante-item">
-            <p style="font-size:24px"><b> &nbsp;' . $ristorante["nome"] . '</b></p>
-            <p>
-                <span style="font-size: 16px" class="material-symbols-outlined">
-                    schedule
-                </span>
-                Orario apertura: &nbsp;' . $ristorante["orario_apertura"] . '
-            </p>
-            <p>
-                <span style="font-size: 16px" class="material-symbols-outlined">
-                    schedule
-                </span>
-                Orario chiusura: &nbsp;' . $ristorante["orario_chiusura"] . '
-            </p>
-            <p><span style="font-size: 16px" class="material-symbols-outlined">
-                    location_on
-                </span>
-                Indirizzo: &nbsp;' . $ristorante["indirizzo"] . '</p>
-            <p><span style="font-size: 16px" class="material-symbols-outlined">
-                    call
-                </span>
-                Numero di telefono: &nbsp;' . $ristorante["num_telefono"] . '</p>
-
-            <div id='.$ristorante["id_ristorante"].' style="margin-top: 8px; margin-bottom: 8px;" class="subscribe-button orderButton">Ordina ora</div>
+                    $queryRistorante = "SELECT * FROM Ristorante WHERE id_ristorante=" . $ordini[$i]["id_ristorante"] . ";";
+                    $queryRistoranteResult = mysqli_query($connection, $queryRistorante);
+                    $ristorante = mysqli_fetch_array($queryRistoranteResult);
+                    print("<tr>");
+                    print("<td>" . $ordini[$i]["data_ordine"] . "</td>");
+                    print("<td>" . $ristorante["nome"] . "</td>");
+                    print("<td>" . $prodotto["nome"] . "</td>");
+                    print("<td>" . $ordini[$i]["quantita"] . "</td>");
+                    print("</tr>");
+                }
+                print("</tbody></table>");
+            }
+            ?>
         </div>
     </div>
-        ');
-    }
-
-    ?>
 
     <footer><small>
             <div class="material-symbols-outlined" style="font-size: 12px;">
@@ -135,8 +126,6 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
             <b>Foodel - Copyright © 2023 Andrea De Giorgi. All Rights Reserved.</b>
         </small>
     </footer>
-
-    <script src="../../scripts/bindRistoranteID.js"></script>
 </body>
 
 </html>

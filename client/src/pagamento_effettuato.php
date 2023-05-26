@@ -1,5 +1,11 @@
 <?php
 
+define('DB_SERVER', 'localhost');
+define('DB_USERNAME', 'root');
+define('DB_PASSWORD', '');
+define('DB_DATABASE', 'foodelDB');
+$connection = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_DATABASE);
+
 session_start();
 
 if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
@@ -7,10 +13,6 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
     $type = $_SESSION["type"];
 } else {
     $type = "vuoto";
-}
-
-if ($type !== "proprietario") {
-    header("Location: http://localhost/foodel/client/src/index.php");
 }
 
 ?>
@@ -21,10 +23,13 @@ if ($type !== "proprietario") {
     <link rel="stylesheet" type="text/css" href="../../style/style.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
 <body>
-<div class="navbar">
+    <div class="navbar">
         <div style="display: flex; flex-direction: row; justify-content: space-between;">
             <div>
                 <div class="maintitle" style="width: fit-content;">
@@ -69,37 +74,9 @@ if ($type !== "proprietario") {
         ?>
     </div>
 
-    <h1 style="display: flex; justify-content:left; margin-left: 150px; font-weight: 1000;"><b>Dashboard</b></h1>
-    <div class='mainpage-info'>
-        <div class='proprietario-item-info'>
-            <p style='font-size:24px'><b>Informazioni ristorante</b></p>
-            <p>
-                Da questa pagina potrai vedere tutte le informazioni riguardanti il tuo ristorante.
-            </p>
-            <div onclick="location.href='mostra-ristorante-proprietario.php'" class='subscribe-button'>Scopri di più</div>
-        </div>
-        <div class='proprietario-item-add'>
-            <p style='font-size:24px'><b>Aggiungi un nuovo piatto</b></p>
-            <p>
-                Registra un nuovo piatto da aggiungere al tuo menu.
-            </p>
-            <div onclick="location.href='creaprodotto.php'" class='subscribe-button'>Crea piatto</div>
-        </div>
-    </div>
-    <div class='mainpage-info'>
-        <div class='proprietario-item-orders'>
-            <p style='font-size:24px'><b>Visualizza ordini</b></p>
-            <p>
-                Visualizza tutti gli ordini ricevuti.
-            </p>
-            <div onclick="location.href='visualizza-ordini-proprietario.php'" class='subscribe-button'>Vedi ordini</div>
-        </div>
-        <div class='proprietario-item-review'>
-            <p style='font-size:24px'><b>Visualizza recensioni</b></p>
-            <p>
-                In questa pagina sono raccolte tutte le recensioni ricevute.
-            </p>
-            <div onclick="location.href='signup-cliente.php'" class='subscribe-button'>Vedi recensioni</div>
+    <div class="ristorante-info">
+        <div class="ristorante-item" style="display: flex; justify-content: center;">
+            <h1>Il tuo ordine è stato completato!</h1>
         </div>
     </div>
 
@@ -110,6 +87,8 @@ if ($type !== "proprietario") {
             <b>Foodel - Copyright © 2023 Andrea De Giorgi. All Rights Reserved.</b>
         </small>
     </footer>
+
+    <script src="../../scripts/bindRistoranteID.js"></script>
 </body>
 
 </html>

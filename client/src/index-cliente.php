@@ -91,7 +91,7 @@ if ($type !== "cliente") {
             <p>
                 Visualizza tutti i tuoi ordini passati.
             </p>
-            <div onclick="location.href='signup-cliente.php'" class='subscribe-button'>Vedi ordini passati</div>
+            <div onclick="location.href='visualizza-ordini.php'" class='subscribe-button'>Vedi ordini passati</div>
         </div>
         <div class='proprietario-item-review'>
             <p style='font-size:24px'><b>Lascia una recensione</b></p>
