@@ -122,50 +122,50 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
     <div class="ristorante-info">
         <div class="ristorante-item">
             <div>
-                <h2>Antipasti</h2>
+                <h2 style='margin-bottom: 2px'>Antipasti</h2>
                 <?php
                 if (count($antipasti) === 0) {
                     print("<p>Non ci sono antipasti</p>");
                 } else {
                     for ($i = 0; $i < count($antipasti); $i++) {
-                        print("<p>" . $antipasti[$i]["nome"] . "</p>");
+                        print("<p class='fooditem'>" . $antipasti[$i]["nome"] . "</p>");
                     }
                 }
                 ?>
             </div>
 
             <div>
-                <h2>Primi</h2>
+                <h2 style='margin-bottom: 2px'>Primi</h2>
                 <?php
                 if (count($primi) === 0) {
                     print("<p>Non ci sono antipasti</p>");
                 } else {
                     for ($i = 0; $i < count($primi); $i++) {
-                        print("<p>" . $primi[$i]["nome"] . "</p>");
+                        print("<p class='fooditem'>" . $primi[$i]["nome"] . "</p>");
                     }
                 }
                 ?>
             </div>
             <div>
-                <h2>Secondi</h2>
+                <h2 style='margin-bottom: 2px'>Secondi</h2>
                 <?php
                 if (count($secondi) === 0) {
                     print("<p>Non ci sono antipasti</p>");
                 } else {
                     for ($i = 0; $i < count($secondi); $i++) {
-                        print("<p>" . $secondi[$i]["nome"] . "</p>");
+                        print("<p class='fooditem'>" . $secondi[$i]["nome"] . "</p>");
                     }
                 }
                 ?>
             </div>
-            <div>
-                <h2>Dessert</h2>
+            <div style="margin-bottom: 10px;">
+                <h2 style='margin-bottom: 2px'>Dessert</h2>
                 <?php
                 if (count($dessert) === 0) {
                     print("<p>Non ci sono antipasti</p>");
                 } else {
                     for ($i = 0; $i < count($dessert); $i++) {
-                        print("<p>" . $dessert[$i]["nome"] . "</p>");
+                        print("<p class='fooditem'>" . $dessert[$i]["nome"] . "</p>");
                     }
                 }
                 ?>
