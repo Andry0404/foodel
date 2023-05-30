@@ -128,7 +128,7 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
                     print("<p>Non ci sono antipasti</p>");
                 } else {
                     for ($i = 0; $i < count($antipasti); $i++) {
-                        print("<p class='fooditem'>" . $antipasti[$i]["nome"] . "</p>");
+                        print("<p class='fooditem'>" . $antipasti[$i]["nome"] ." - Prezzo:  ".$antipasti[$i]["prezzo"]. "€</p>");
                     }
                 }
                 ?>
@@ -141,7 +141,7 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
                     print("<p>Non ci sono antipasti</p>");
                 } else {
                     for ($i = 0; $i < count($primi); $i++) {
-                        print("<p class='fooditem'>" . $primi[$i]["nome"] . "</p>");
+                        print("<p class='fooditem'>" . $primi[$i]["nome"] ." - Prezzo:  ".$primi[$i]["prezzo"]. "€</p>");
                     }
                 }
                 ?>
@@ -153,7 +153,7 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
                     print("<p>Non ci sono antipasti</p>");
                 } else {
                     for ($i = 0; $i < count($secondi); $i++) {
-                        print("<p class='fooditem'>" . $secondi[$i]["nome"] . "</p>");
+                        print("<p class='fooditem'>" . $secondi[$i]["nome"] ." - Prezzo:  ".$secondi[$i]["prezzo"]. "€</p>");
                     }
                 }
                 ?>
@@ -165,7 +165,7 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
                     print("<p>Non ci sono antipasti</p>");
                 } else {
                     for ($i = 0; $i < count($dessert); $i++) {
-                        print("<p class='fooditem'>" . $dessert[$i]["nome"] . "</p>");
+                        print("<p class='fooditem'>" . $dessert[$i]["nome"] ." - Prezzo:  ".$dessert[$i]["prezzo"]. "€</p>");
                     }
                 }
                 ?>

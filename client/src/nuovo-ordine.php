@@ -132,7 +132,7 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
                     } else {
                         for ($i = 0; $i < count($antipasti); $i++) {
                             print('<div style="display:flex; justify-content: left; margin: 2px 0px 2px 0px">');
-                            print("<p class='fooditem'>" . $antipasti[$i]["nome"] . "</p>");
+                            print("<p class='fooditem'>" . $antipasti[$i]["nome"] ." - Prezzo:  ".$antipasti[$i]["prezzo"]. "€</p>");
                             print('<input id=' . $antipasti[$i]['id_prodotto'] . ' name=' . $antipasti[$i]['id_prodotto'] . ' type="number" value="0" style="margin-left: 15px" />');
                             print('</div>');
                         }
@@ -148,7 +148,7 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
                     } else {
                         for ($i = 0; $i < count($primi); $i++) {
                             print('<div style="display:flex; justify-content: left; margin: 2px 0px 2px 0px">');
-                            print("<p class='fooditem'>" . $primi[$i]["nome"] . "</p>");
+                            print("<p class='fooditem'>" . $primi[$i]["nome"] ." - Prezzo:  ".$primi[$i]["prezzo"]. "€</p>");
                             print('<input id=' . $primi[$i]['id_prodotto'] . ' name=' . $primi[$i]['id_prodotto'] . ' type="number" value="0" style="margin-left: 15px" />');
                             print('</div>');
                         }
@@ -163,7 +163,7 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
                     } else {
                         for ($i = 0; $i < count($secondi); $i++) {
                             print('<div style="display:flex; justify-content: left; margin: 2px 0px 2px 0px">');
-                            print("<p class='fooditem'>" . $secondi[$i]["nome"] . "</p>");
+                            print("<p class='fooditem'>" . $secondi[$i]["nome"] ." - Prezzo:  ".$secondi[$i]["prezzo"]. "€</p>");
                             print('<input id=' . $secondi[$i]['id_prodotto'] . ' name=' . $secondi[$i]['id_prodotto'] . ' type="number" value="0" style="margin-left: 15px" />');
                             print('</div>');
                         }
@@ -178,7 +178,7 @@ if (isset($_SESSION['userID']) && isset($_SESSION['email'])) {
                     } else {
                         for ($i = 0; $i < count($dessert); $i++) {
                             print('<div style="display:flex; justify-content: left; margin: 2px 0px 2px 0px">');
-                            print("<p class='fooditem'>" . $dessert[$i]["nome"] . "</p>");
+                            print("<p class='fooditem'>" . $dessert[$i]["nome"] ." - Prezzo:  ".$dessert[$i]["prezzo"]. "€</p>");
                             print('<input id=' . $dessert[$i]['id_prodotto'] . ' name=' . $dessert[$i]['id_prodotto'] . ' type="number" value="0" style="margin-left: 15px" />');
                             print('</div>');
                         }
