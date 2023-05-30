@@ -31,6 +31,8 @@ if (isset($_GET["result"])) {
             $outmsg = "";
             break;
     }
+} else {
+    $outmsg = "";
 }
 ?>
 
