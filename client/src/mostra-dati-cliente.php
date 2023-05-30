@@ -102,7 +102,7 @@ if ($result_type === 0) {
                 <span style="font-size: 16px" class="material-symbols-outlined">
                     mail
                 </span>
-                Orario apertura: <?php echo $cliente["email"] ?>
+                Email: <?php echo $cliente["email"] ?>
             </p>
             <p>
                 <span style="font-size: 16px" class="material-symbols-outlined">
