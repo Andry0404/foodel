@@ -13,18 +13,22 @@ $error = $_GET["error"];
 
 $msg = "Pagina non disponibile.";
 
-if($error === '404') {
+if ($error === '404') {
     $msg = "Non ci sono ristoranti disponibili.";
-} else if($error === '88') {
+} else if ($error === '88') {
     $msg = "Utente non esistente o credenziali errate.";
-} else if($error === '403') {
+} else if ($error === '403') {
     $msg = "Menu non disponibile.";
-} else if($error === '408') {
+} else if ($error === '408') {
     $msg = "Non ci sono ordini nello storico.";
-} else if($error === '501') {
+} else if ($error === '501') {
     $msg = "Ordinazione fallita.";
-} else if($error === '502') {
+} else if ($error === '502') {
     $msg = "Utilizzare esclusivamente numeri per esprimere la quantità.";
+} else if ($error === '800') {
+    $msg = "Il campo \"valutazione stelle\" è obbligatorio.";
+} else if($error === '601') {
+    $msg = "Errore nella creazione della recensione.";
 }
 
 ?>

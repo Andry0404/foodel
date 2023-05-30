@@ -80,11 +80,10 @@ create table Recensione(
     valutazione_stelle > 0
     or valutazione_stelle < 6
   ),
-  valutazione_recensione varchar(255) not null,
+  valutazione_recensione varchar(255),
   id_ristorante int,
-  id_ordine int,
-  FOREIGN KEY (id_ristorante) REFERENCES Ristorante(id_ristorante),
-  FOREIGN KEY (id_ordine) REFERENCES Ordina_da(id_ordine)
+  data_recensione varchar(255) not null,
+  FOREIGN KEY (id_ristorante) REFERENCES Ristorante(id_ristorante)
 );
 
 drop table if exists Scrive;

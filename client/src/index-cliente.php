@@ -98,7 +98,7 @@ if ($type !== "cliente") {
             <p>
                 In questa pagina puoi lasciare una recensione per un tuo ordine passato.
             </p>
-            <div onclick="location.href='signup-cliente.php'" class='subscribe-button'>Crea recensione</div>
+            <div onclick="location.href='seleziona-ordine-per-recensione.php'" class='subscribe-button'>Crea recensione</div>
         </div>
     </div>
 

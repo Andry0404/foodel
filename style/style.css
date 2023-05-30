@@ -464,6 +464,12 @@ p.fooditem {
     margin: 2px 0px 2px 0px;
 }
 
+.table-recensione {
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+}
+
 footer {
     text-align: center;
     padding: 15px;
