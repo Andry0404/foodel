@@ -1,55 +1,45 @@
-<html>
+<?php
 
-<head></head>
+$p = "Prodotto";
 
-<body>
-	<?php
+$con = mysqli_connect("localhost", "root", "", "foodelDB") or die("Errore nella connessione al server mysql: " . mysqli_connect_error());
 
-	$p = "Prodotto";
+$q = "select * from Prodotto";
 
-	$con = mysqli_connect("localhost", "root", "", "foodelDB") or die("Errore nella connessione al server mysql: " . mysqli_connect_error());
+$rs = mysqli_query($con, $q) or die("Errore nell'esecuzione della query $q: " . mysqli_error($con));
 
-	$q = "select * from Prodotto";
+$n = mysqli_num_rows($rs);
 
-	$rs = mysqli_query($con, $q) or die("Errore nell'esecuzione della query $q: " . mysqli_error($con));
+if ($n == 0) {
+	print("La tabella e' vuota<br>\n");
+} else {
+	//numero di campi della tabella
+	$col = mysqli_num_fields($rs);
 
-	$n = mysqli_num_rows($rs);
+	print("<table border>\n");
 
-	if ($n == 0) {
-		print("La tabella e' vuota<br>\n");
-	} else {
-		//numero di campi della tabella
-		$col = mysqli_num_fields($rs);
+	print("<caption>Elenco dati della tabella $p</caption>\n");
 
-		print("<table border>\n");
+	print("<tr>\n");
 
-		print("<caption>Elenco dati della tabella $p</caption>\n");
+	//ciclo per stampare i nomi dei campi
+	for ($j = 0; $j < $col; $j++) {
+		print("<th>" . mysqli_fetch_field($rs)->name . "</th>\n");
+	}
+	print("</tr>\n");
+
+	//ciclo che stampa la tabella
+	for ($i = 0; $i < $n; $i++) {
+		$a = mysqli_fetch_array($rs);
 
 		print("<tr>\n");
 
-		//ciclo per stampare i nomi dei campi
 		for ($j = 0; $j < $col; $j++) {
-			print("<th>" . mysqli_fetch_field($rs)->name . "</th>\n");
+			print("<td>" . $a[$j] . "</td>");
 		}
 		print("</tr>\n");
-
-		//ciclo che stampa la tabella
-		for ($i = 0; $i < $n; $i++) {
-			$a = mysqli_fetch_array($rs);
-
-			print("<tr>\n");
-
-			for ($j = 0; $j < $col; $j++) {
-				print("<td>" . $a[$j] . "</td>");
-			}
-			print("</tr>\n");
-		}
-		print("</table>\n");
 	}
+	print("</table>\n");
+}
 
-	mysqli_close($con);
-
-	?>
-</body>
-
-</html>
+mysqli_close($con);

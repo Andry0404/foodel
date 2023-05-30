@@ -1,14 +1,5 @@
 <?php
 
-function debug_to_console($data)
-{
-    $output = $data;
-    if (is_array($output))
-        $output = implode(',', $output);
-
-    echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
-}
-
 $nome = $_GET['nome'];
 $cognome = $_GET['cognome'];
 $data_di_nascita = $_GET['data_di_nascita'];

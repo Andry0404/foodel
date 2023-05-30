@@ -1,64 +1,54 @@
-<html>
+<?php
 
-<head></head>
+$nome = $_GET['nome'];
+$cognome = $_GET['cognome'];
+$indirizzo = $_GET['indirizzo'];
+$data_di_nascita = $_GET['data_di_nascita'];
+$email = $_GET['email'];
+$password = $_GET['password'];
 
-<body>
-    <?php
+$campi_validi = true;
 
-    $nome = $_GET['nome'];
-    $cognome = $_GET['cognome'];
-    $indirizzo = $_GET['indirizzo'];
-    $data_di_nascita = $_GET['data_di_nascita'];
-    $email = $_GET['email'];
-    $password = $_GET['password'];
+if ($nome == "") {
+    $campi_validi = false;
+}
+if ($cognome == "") {
+    $campi_validi = false;
+}
+if ($indirizzo == "") {
+    $campi_validi = false;
+}
+if ($data_di_nascita == "") {
+    $campi_validi = false;
+}
+if ($email == "") {
+    $campi_validi = false;
+}
+if ($password == "") {
+    $campi_validi = false;
+}
 
-    $campi_validi = true;
+if ($campi_validi) {
+    // hashing della password
+    $password = password_hash($password, PASSWORD_DEFAULT);
+    $connection = mysqli_connect("localhost", "root", "", "foodelDB") or die("ERROR: connection error with foodelDB. " . mysqli_connect_error());
 
-    if ($nome == "") {
-        $campi_validi = false;
-    }
-    if ($cognome == "") {
-        $campi_validi = false;
-    }
-    if ($indirizzo == "") {
-        $campi_validi = false;
-    }
-    if ($data_di_nascita == "") {
-        $campi_validi = false;
-    }
-    if ($email == "") {
-        $campi_validi = false;
-    }
-    if ($password == "") {
-        $campi_validi = false;
-    }
+    $query = "INSERT INTO Cliente(cognome, nome, indirizzo, email, data_nascita, hashed_password) ";
+    $query = $query . "VALUES('$cognome', '$nome', '$indirizzo', '$email', '$data_di_nascita', '$password');";
 
-    if ($campi_validi) {
-        // hashing della password
-        $password = password_hash($password, PASSWORD_DEFAULT);
-        $connection = mysqli_connect("localhost", "root", "", "foodelDB") or die("ERROR: connection error with foodelDB. " . mysqli_connect_error());
+    $myquery = mysqli_query($connection, $query);
 
-        $query = "INSERT INTO Cliente(cognome, nome, indirizzo, email, data_nascita, hashed_password) ";
-        $query = $query . "VALUES('$cognome', '$nome', '$indirizzo', '$email', '$data_di_nascita', '$password');";
-
-        $myquery = mysqli_query($connection, $query);
-
-        if ($myquery) {
-            // redirect: manda ad un'altra pagina
-            mysqli_close($connection);
-            header("Location: http://localhost/foodel/client/src/registrazione-success.php");
-            die();
-        } else {
-            mysqli_close($connection);
-            header("Location: http://localhost/foodel/client/src/registrazione-failed.php");
-            die();
-        }
+    if ($myquery) {
+        // redirect: manda ad un'altra pagina
+        mysqli_close($connection);
+        header("Location: http://localhost/foodel/client/src/registrazione-success.php");
+        die();
     } else {
+        mysqli_close($connection);
         header("Location: http://localhost/foodel/client/src/registrazione-failed.php");
         die();
     }
-
-    ?>
-</body>
-
-</html>
+} else {
+    header("Location: http://localhost/foodel/client/src/registrazione-failed.php");
+    die();
+}
